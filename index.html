@@ -131,21 +131,40 @@
     }
     .menuBtn:hover{ background: rgba(255,255,255,.92); }
 
-    .mobileNav{
-      display:none;
-      border-top: 1px solid var(--line);
-      background: rgba(250,247,242,.92);
-    }
-    .mobileNavInner{
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-      padding: 10px 0 16px;
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height .22s ease;
-    }
-    .mobileNav.open .mobileNavInner{ max-height: 520px; }
-    .mobileLinks{ display:flex; flex-direction:column; gap: 6px; }
+    /* ===== FIX: menu mobile não pode aparecer quando fechado ===== */
+
+/* mantém o wrapper totalmente invisível/sem altura quando fechado */
+.mobileNav{
+  display: block;                 /* continua existindo */
+  max-height: 0;                  /* fechado = zero altura */
+  overflow: hidden;               /* esconde qualquer coisa interna */
+  border-top: 0 !important;       /* remove a linha quando fechado */
+  padding: 0 !important;          /* evita “faixa” */
+  margin: 0 !important;
+  background: rgba(250,247,242,.92);
+}
+
+/* só quando ABERTO, libera altura e borda */
+.mobileNav.open{
+  max-height: 520px;              /* suficiente p/ links */
+  border-top: 1px solid var(--line) !important;
+}
+
+/* o conteúdo interno também precisa ficar sem padding quando fechado */
+.mobileNavInner{
+  padding: 0 !important;          /* fechado */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .22s ease, padding .22s ease;
+}
+
+/* quando abre, entra padding normal */
+.mobileNav.open .mobileNavInner{
+  padding: 10px 0 16px !important;
+  max-height: 520px;
+}
+
+    .mobileLinks{ display:flex; flex-direction:column; gap: 1px; }
     .mobileLinks a{
       padding: 12px 12px;
       border-radius: 12px;
