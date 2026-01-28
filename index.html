@@ -3,33 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Combray Gastronomia — alta gastronomia para eventos sociais e corporativos, com menus customizados e execução impecável." />
-  <title>Combray Gastronomia</title>
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="Combray Gastronomia — Joinville e região • Florianópolis. Alta gastronomia para eventos sociais e corporativos, com menus customizados e execução impecável." />
+  <title>Combray Gastronomia — Eventos & Alta Gastronomia</title>
 
-  <!-- Fontes (clean + premium) -->
+  <!-- Tipografia premium (leve + elegante) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Preload das imagens principais (CDN) -->
-  <link rel="preload" as="image" href="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-interno-01-1920w.jpeg" />
-  <link rel="preload" as="image" href="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root{
+      /* Paleta clean + sofisticada */
       --bg: #ffffff;
-      --text:#121316;
-      --muted:#5a606b;
-      --line: rgba(18,19,22,.10);
-      --card: rgba(18,19,22,.03);
-      --shadow: 0 16px 50px rgba(18,19,22,.10);
+      --ink: #0f1115;
+      --muted: rgba(15,17,21,.72);
+      --line: rgba(15,17,21,.12);
+      --card: rgba(15,17,21,.03);
 
-      /* Inspirado no logo (vermelho elegante) */
-      --brand:#9b2d2d;
-      --brand-2:#1f2937;
+      --brand: #8e2b2b;      /* vinho elegante (combina com a marca) */
+      --brand2:#111827;
 
       --radius: 18px;
+      --shadow: 0 18px 55px rgba(15,17,21,.10);
       --max: 1120px;
+
+      --focus: 0 0 0 4px rgba(142,43,43,.18);
     }
 
     *{ box-sizing:border-box; }
@@ -37,9 +36,11 @@
     body{
       margin:0;
       background: var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       line-height:1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     a{ color:inherit; text-decoration:none; }
@@ -54,171 +55,246 @@
     .skip:focus{
       position:fixed; left:16px; top:16px; width:auto; height:auto;
       padding:10px 12px; border-radius:12px;
-      border:1px solid var(--line);
-      background:#fff;
-      box-shadow: var(--shadow);
+      border:1px solid var(--line); background:#fff; box-shadow: var(--shadow);
       z-index:9999;
     }
+    :focus-visible{ outline:none; box-shadow: var(--focus); border-radius: 12px; }
 
-    /* Header */
+    /* HEADER */
     header{
-      position:sticky; top:0; z-index:50;
-      background: rgba(255,255,255,.86);
+      position: sticky; top:0; z-index: 50;
+      background: rgba(255,255,255,.82);
       backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:16px;
+      padding: 12px 0;
+      gap: 12px;
     }
+
     .brand{
       display:flex; align-items:center; gap:12px;
       min-width: 220px;
     }
-    .brand img{ height:28px; width:auto; }
-    .brand .tag{
-      font-size:12px; color:var(--muted);
-      border-left:1px solid var(--line);
-      padding-left:12px;
+    .brand img{
+      height: 40px;         /* maior: logo bem visível */
+      width:auto;
+    }
+    .brand small{
       display:none;
+      color: var(--muted);
+      font-size: 12px;
+      border-left: 1px solid var(--line);
+      padding-left: 12px;
+      white-space: nowrap;
     }
 
-    nav ul{
-      list-style:none; margin:0; padding:0;
-      display:flex; gap:18px; align-items:center;
-      color:var(--muted);
-      font-size:14px;
+    .menu{
+      display:flex; align-items:center; gap: 8px;
     }
-    nav a{
-      padding:8px 10px;
-      border-radius:12px;
+    .menu a{
+      padding: 10px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 14px;
       transition: background .15s ease, color .15s ease;
     }
-    nav a:hover{ background: rgba(18,19,22,.05); color:var(--text); }
+    .menu a:hover{ background: rgba(15,17,21,.05); color: var(--ink); }
 
     .actions{ display:flex; gap:10px; align-items:center; }
 
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:11px 14px;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 11px 14px;
       border-radius: 14px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:var(--text);
-      cursor:pointer;
-      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
-      box-shadow: 0 8px 30px rgba(18,19,22,.06);
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      cursor: pointer;
       user-select:none;
-      font-weight:600;
-      font-size:14px;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 10px 32px rgba(15,17,21,.07);
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, background .12s ease;
+      white-space: nowrap;
     }
-    .btn:hover{ transform: translateY(-1px); border-color: rgba(18,19,22,.18); }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(15,17,21,.20); }
     .btn.primary{
       background: var(--brand);
       color:#fff;
-      border-color: rgba(0,0,0,0);
-      box-shadow: 0 18px 45px rgba(155,45,45,.20);
+      border-color: transparent;
+      box-shadow: 0 16px 42px rgba(142,43,43,.22);
     }
-    .btn.primary:hover{ background: #8a2626; }
+    .btn.primary:hover{ background: #7d2525; }
 
-    /* Hero */
-    .hero{
-      padding: 44px 0 18px;
+    /* Mobile menu */
+    .hamb{
+      display:none;
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow: 0 10px 32px rgba(15,17,21,.07);
+      cursor:pointer;
+      position: relative;
     }
+    .hamb span{
+      position:absolute; left:12px; right:12px;
+      height:2px; background: var(--ink); border-radius: 99px;
+      transition: transform .15s ease, top .15s ease, opacity .15s ease;
+    }
+    .hamb span:nth-child(1){ top: 15px; }
+    .hamb span:nth-child(2){ top: 21px; opacity:.85; }
+    .hamb span:nth-child(3){ top: 27px; }
+    body.menu-open .hamb span:nth-child(1){ top: 21px; transform: rotate(45deg); }
+    body.menu-open .hamb span:nth-child(2){ opacity:0; }
+    body.menu-open .hamb span:nth-child(3){ top: 21px; transform: rotate(-45deg); }
+
+    .mobile-panel{
+      display:none;
+      position: fixed; inset: 72px 12px 12px 12px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+      backdrop-filter: blur(12px);
+      z-index: 60;
+    }
+    body.menu-open .mobile-panel{ display:block; }
+    .mobile-panel a{
+      display:block;
+      padding: 14px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,17,21,.06);
+      background: rgba(15,17,21,.02);
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* HERO */
+    main{ overflow:hidden; }
+    .hero{
+      padding: 48px 0 20px;
+      position: relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset: -80px -120px auto -120px;
+      height: 340px;
+      background: radial-gradient(closest-side, rgba(142,43,43,.10), rgba(255,255,255,0));
+      pointer-events:none;
+    }
+
     .hero-grid{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
       gap: 26px;
-      align-items:stretch;
+      align-items: stretch;
     }
+
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
-      font-size:13px; color:var(--muted);
+      font-size: 13px;
+      color: var(--muted);
     }
-    .dot{
-      width:6px; height:6px; border-radius:999px;
-      background: var(--brand);
-      display:inline-block;
+    .dot{ width:6px; height:6px; background: var(--brand); border-radius:999px; display:inline-block; }
+
+    .hero-brand{
+      margin-top: 12px;
+      display:flex; align-items:center; gap: 14px;
+    }
+    .hero-brand img{
+      height: 56px;          /* logo bem mais presente no hero */
+      width:auto;
+      filter: none;
+    }
+    .hero-brand .areas{
+      font-size: 13px;
+      color: var(--muted);
+      border-left: 1px solid var(--line);
+      padding-left: 14px;
     }
 
     h1{
-      margin:10px 0 10px;
+      margin: 12px 0 10px;
       font-family: "Playfair Display", serif;
       font-weight: 700;
-      letter-spacing:-.4px;
-      line-height:1.08;
-      font-size: clamp(32px, 4vw, 54px);
+      letter-spacing: -0.5px;
+      line-height: 1.07;
+      font-size: clamp(34px, 4.2vw, 56px);
     }
     .lead{
       margin:0;
       color: var(--muted);
-      max-width: 62ch;
       font-size: 16px;
+      max-width: 62ch;
     }
+
     .hero-cta{
-      display:flex; flex-wrap:wrap; gap:12px;
-      margin-top:16px;
-      align-items:center;
+      display:flex; flex-wrap:wrap; gap: 12px;
+      margin-top: 18px;
+      align-items: center;
     }
-    .mini-proof{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:16px;
+    .proof{
+      display:flex; flex-wrap:wrap; gap: 10px;
+      margin-top: 16px;
       color: var(--muted);
       font-size: 13px;
     }
     .pill{
       display:inline-flex; align-items:center; gap:10px;
-      border:1px solid var(--line);
-      background: rgba(18,19,22,.03);
-      padding:8px 10px;
+      border: 1px solid rgba(15,17,21,.10);
+      background: rgba(15,17,21,.02);
+      padding: 8px 10px;
       border-radius: 999px;
     }
 
-    .hero-card{
+    .hero-media{
       border-radius: var(--radius);
       overflow:hidden;
-      border:1px solid var(--line);
+      border: 1px solid var(--line);
+      background: #f6f6f7;
       box-shadow: var(--shadow);
-      background: #f7f7f9;
-      position:relative;
-      min-height: 420px;
+      position: relative;
+      min-height: 440px;
     }
-    .hero-card img{
+    .hero-media img{
       width:100%; height:100%;
-      object-fit:cover;
+      object-fit: cover;
       transform: scale(1.02);
     }
-    .overlay{
-      position:absolute; inset:auto 16px 16px 16px;
-      background: rgba(255,255,255,.86);
-      border:1px solid var(--line);
-      backdrop-filter: blur(8px);
+    .media-badge{
+      position: absolute; left: 16px; right: 16px; bottom: 16px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid var(--line);
       border-radius: 16px;
       padding: 12px 12px;
-      box-shadow: 0 12px 35px rgba(18,19,22,.10);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 35px rgba(15,17,21,.10);
     }
-    .overlay strong{ display:block; font-size:13px; }
-    .overlay span{ display:block; font-size:13px; color: var(--muted); margin-top:2px; }
+    .media-badge strong{ display:block; font-size: 13px; }
+    .media-badge span{ display:block; font-size: 13px; color: var(--muted); margin-top: 2px; }
 
-    /* Sections */
-    section{ padding: 34px 0; }
+    /* SECTIONS */
+    section{ padding: 36px 0; }
     .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin-bottom: 16px;
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 14px; margin-bottom: 16px;
     }
     h2{
       margin:0;
-      font-family: "Playfair Display", serif;
-      font-size: 26px;
-      letter-spacing:-.2px;
+      font-family:"Playfair Display", serif;
+      font-size: 28px;
+      letter-spacing: -0.2px;
     }
     .sub{
       margin:0;
       color: var(--muted);
       font-size: 14px;
-      max-width: 70ch;
+      max-width: 72ch;
     }
 
     .grid-3{
@@ -227,26 +303,51 @@
       gap: 14px;
     }
     .card{
-      border:1px solid var(--line);
-      background: rgba(18,19,22,.02);
+      border: 1px solid var(--line);
+      background: rgba(15,17,21,.02);
       border-radius: var(--radius);
       padding: 16px;
     }
-    .card h3{
-      margin:0 0 6px;
-      font-size: 15px;
-      letter-spacing: -0.1px;
-    }
-    .card p{ margin:0; color: var(--muted); font-size:14px; }
-
-    .icon{
-      width:44px; height:44px; border-radius: 14px;
+    .card .icon{
+      width: 46px; height: 46px;
+      border-radius: 16px;
       display:grid; place-items:center;
-      border:1px solid var(--line);
+      border: 1px solid rgba(15,17,21,.12);
       background: #fff;
       margin-bottom: 10px;
       font-size: 18px;
     }
+    .card h3{
+      margin:0 0 6px;
+      font-size: 15px;
+      letter-spacing:-0.1px;
+    }
+    .card p{ margin:0; color: var(--muted); font-size: 14px; }
+
+    /* Steps */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .step{
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 10px 32px rgba(15,17,21,.05);
+    }
+    .step b{
+      display:inline-flex; align-items:center; justify-content:center;
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background: rgba(142,43,43,.10);
+      color: var(--brand);
+      border: 1px solid rgba(142,43,43,.18);
+      margin-bottom: 10px;
+    }
+    .step h4{ margin:0 0 6px; font-size: 15px; }
+    .step p{ margin:0; color: var(--muted); font-size: 14px; }
 
     /* Gallery */
     .gallery{
@@ -257,120 +358,140 @@
     .ph{
       border-radius: var(--radius);
       overflow:hidden;
-      border:1px solid var(--line);
-      background:#f3f4f6;
-      box-shadow: 0 10px 30px rgba(18,19,22,.06);
+      border: 1px solid var(--line);
+      background: #f2f3f5;
+      box-shadow: 0 10px 30px rgba(15,17,21,.06);
       position:relative;
-      min-height: 180px;
+      min-height: 200px;
     }
     .ph img{ width:100%; height:100%; object-fit:cover; transition: transform .25s ease; }
     .ph:hover img{ transform: scale(1.03); }
-    .ph.big{ grid-column: span 7; min-height: 320px; }
-    .ph.med{ grid-column: span 5; min-height: 320px; }
-    .ph.sm{ grid-column: span 4; min-height: 220px; }
+    .ph.big{ grid-column: span 7; min-height: 360px; }
+    .ph.med{ grid-column: span 5; min-height: 360px; }
+    .ph.sm{ grid-column: span 4; min-height: 240px; }
 
     .label{
-      position:absolute; left:14px; bottom:14px;
-      background: rgba(255,255,255,.86);
-      border:1px solid var(--line);
-      backdrop-filter: blur(8px);
+      position:absolute; left: 14px; bottom: 14px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid var(--line);
       border-radius: 999px;
       padding: 7px 10px;
       font-size: 13px;
       color: var(--muted);
+      backdrop-filter: blur(10px);
     }
 
-    /* CTA band */
-    .cta{
-      border:1px solid var(--line);
-      background: linear-gradient(135deg, rgba(155,45,45,.08), rgba(18,19,22,.02));
+    /* Areas band */
+    .band{
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(142,43,43,.10), rgba(15,17,21,.02));
       border-radius: calc(var(--radius) + 4px);
       padding: 18px;
+      box-shadow: var(--shadow);
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
-      box-shadow: var(--shadow);
+      gap: 14px;
+      flex-wrap: wrap;
     }
-    .cta strong{
+    .band strong{
       font-family:"Playfair Display", serif;
       font-size: 20px;
-      letter-spacing:-.2px;
+      letter-spacing: -0.2px;
     }
-    .cta span{ color: var(--muted); font-size: 14px; display:block; margin-top:4px; }
+    .band span{ color: var(--muted); font-size: 14px; display:block; margin-top: 4px; }
 
     /* Contact */
     .contact{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
-      gap:14px;
+      gap: 14px;
       align-items:start;
     }
-    form{ display:grid; gap:12px; }
-    label{ font-size:13px; color: var(--muted); }
-    input, textarea{
+    form{ display:grid; gap: 12px; }
+    label{ font-size: 13px; color: var(--muted); }
+    input, textarea, select{
       width:100%;
-      padding:12px 12px;
+      padding: 12px 12px;
       border-radius: 14px;
-      border:1px solid var(--line);
+      border: 1px solid var(--line);
       background:#fff;
-      color: var(--text);
+      color: var(--ink);
       outline:none;
+      font: inherit;
     }
-    input:focus, textarea:focus{
-      border-color: rgba(155,45,45,.35);
-      box-shadow: 0 0 0 4px rgba(155,45,45,.10);
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(142,43,43,.40);
+      box-shadow: var(--focus);
     }
     textarea{ min-height: 120px; resize: vertical; }
-    .row2{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    .row2{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-    .notice{
-      border:1px solid var(--line);
-      background: rgba(18,19,22,.02);
-      border-radius: var(--radius);
-      padding: 14px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .contact-box{
-      border:1px solid var(--line);
+    .box{
+      border: 1px solid var(--line);
       background:#fff;
       border-radius: var(--radius);
       padding: 16px;
-      box-shadow: 0 10px 30px rgba(18,19,22,.06);
+      box-shadow: 0 10px 32px rgba(15,17,21,.06);
     }
-    .contact-box h3{ margin:0 0 8px; font-size: 15px; }
-    .contact-links{ display:grid; gap:10px; margin-top:10px; }
+    .box h3{ margin:0 0 8px; font-size: 15px; }
+    .muted{ color: var(--muted); font-size: 14px; margin:0; }
+
+    .contact-links{ display:grid; gap: 10px; margin-top: 12px; }
 
     footer{
-      border-top:1px solid var(--line);
+      border-top: 1px solid var(--line);
       padding: 22px 0 36px;
       color: var(--muted);
       font-size: 14px;
     }
     .foot{
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-      flex-wrap:wrap;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    .small{ font-size:12px; color: var(--muted); }
+    .small{ font-size: 12px; color: var(--muted); }
 
-    /* Responsive */
-    @media (max-width: 960px){
-      nav ul{ display:none; }
+    /* Floating WhatsApp (mobile) */
+    .float-wa{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 80;
+      display:none;
+    }
+    .float-wa a{
+      display:inline-flex; align-items:center; justify-content:center;
+      width: 54px; height: 54px;
+      border-radius: 18px;
+      background: var(--brand);
+      color:#fff;
+      box-shadow: 0 18px 45px rgba(142,43,43,.28);
+      border: 1px solid rgba(0,0,0,0);
+      font-weight: 800;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .brand small{ display:none; }
+      .menu{ display:none; }
+      .hamb{ display:inline-block; }
       .hero-grid{ grid-template-columns: 1fr; }
-      .hero-card{ min-height: 360px; }
+      .hero-media{ min-height: 360px; }
       .grid-3{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
       .contact{ grid-template-columns: 1fr; }
       .row2{ grid-template-columns: 1fr; }
-      .ph.big{ grid-column: span 12; }
-      .ph.med{ grid-column: span 12; }
-      .ph.sm{ grid-column: span 12; }
-      .cta{ flex-direction:column; align-items:flex-start; }
-      .brand .tag{ display:none; }
+      .ph.big, .ph.med, .ph.sm{ grid-column: span 12; }
+      .float-wa{ display:block; }
+      .brand img{ height: 36px; }
+      .hero-brand img{ height: 52px; }
     }
 
-    @media (min-width: 961px){
-      .brand .tag{ display:inline; }
+    @media (min-width: 981px){
+      .brand small{ display:inline; }
     }
   </style>
 </head>
@@ -381,27 +502,41 @@
   <header>
     <div class="container">
       <div class="nav" aria-label="Barra de navegação">
-        <a class="brand" href="#topo" aria-label="Combray Gastronomia - Início">
+        <a class="brand" href="#topo" aria-label="Combray Gastronomia — Início">
           <img
             src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-55061806-609eba1e-1920w.png"
             alt="Combray Gastronomia"
           />
-          <span class="tag">Eventos • Restaurante • Catering</span>
+          <small>Joinville e região • Florianópolis</small>
         </a>
 
-        <nav aria-label="Menu">
-          <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#como">Como trabalhamos</a></li>
-            <li><a href="#galeria">Imagens</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
+        <nav class="menu" aria-label="Menu">
+          <a href="#servicos">Serviços</a>
+          <a href="#como">Como funciona</a>
+          <a href="#galeria">Imagens</a>
+          <a href="#areas">Áreas atendidas</a>
+          <a href="#contato">Contato</a>
         </nav>
 
         <div class="actions">
+          <button class="hamb" id="btnMenu" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
           <a class="btn" href="#contato">Solicitar orçamento</a>
-          <a class="btn primary" href="#" id="ctaWhatsapp">WhatsApp</a>
+          <a class="btn primary" href="#" id="btnWhatsHeader">WhatsApp</a>
         </div>
+      </div>
+    </div>
+
+    <!-- Painel mobile -->
+    <div class="container">
+      <div class="mobile-panel" id="mobilePanel" aria-label="Menu mobile">
+        <a href="#servicos">Serviços</a>
+        <a href="#como">Como funciona</a>
+        <a href="#galeria">Imagens</a>
+        <a href="#areas">Áreas atendidas</a>
+        <a href="#contato">Contato</a>
+        <a class="btn primary" style="width:100%; margin-top:6px" href="#" id="btnWhatsMobile">Falar no WhatsApp</a>
       </div>
     </div>
   </header>
@@ -412,122 +547,112 @@
       <div class="container">
         <div class="hero-grid">
           <div>
-            <div class="kicker"><span class="dot" aria-hidden="true"></span> Alta gastronomia para eventos com execução impecável</div>
+            <div class="kicker"><span class="dot" aria-hidden="true"></span> Alta gastronomia para eventos sociais e corporativos</div>
+
+            <div class="hero-brand" aria-label="Marca e área de atuação">
+              <img
+                src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-55061806-609eba1e-1920w.png"
+                alt="Combray Gastronomia"
+              />
+              <div class="areas">
+                Atendimento premium em <b>Joinville e região</b> • <b>Florianópolis</b>
+              </div>
+            </div>
 
             <h1>
-              Seu evento com padrão premium —
-              <span style="color:var(--brand);">sabor, estética e tranquilidade</span>.
+              Refinamento no sabor.
+              <span style="color:var(--brand)">Precisão na execução.</span>
             </h1>
 
             <p class="lead">
-              No Combray, você contrata mais do que comida: contrata processo, equipe e experiência.
-              Menus customizados para eventos sociais e corporativos, com excelência em servir.
+              Menus customizados, equipe profissional e uma operação pronta para eventos que exigem padrão alto —
+              do coffee break ao banquete.
             </p>
 
             <div class="hero-cta">
-              <a class="btn primary" href="#contato">Quero um orçamento</a>
+              <a class="btn primary" href="#contato">Quero orçamento</a>
               <a class="btn" href="#galeria">Ver imagens</a>
             </div>
 
-            <div class="mini-proof" aria-label="Diferenciais">
+            <div class="proof" aria-label="Diferenciais">
               <span class="pill">✅ Menu customizado</span>
               <span class="pill">✅ Equipe qualificada</span>
-              <span class="pill">✅ Padrão internacional</span>
+              <span class="pill">✅ Padrão premium</span>
             </div>
           </div>
 
-          <div class="hero-card" aria-label="Imagem destaque do Combray">
+          <div class="hero-media" aria-label="Imagem destaque">
             <img
               src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-interno-01-1920w.jpeg"
               alt="Ambiente do Combray com mesas montadas"
               loading="eager"
             />
-            <div class="overlay" role="note" aria-label="Chamada de valor">
+            <div class="media-badge" role="note">
               <strong>Do briefing ao serviço final</strong>
-              <span>Organização, timing e apresentação em cada detalhe.</span>
+              <span>Timing, estética e hospitalidade em cada detalhe.</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SOBRE -->
-    <section id="sobre">
+    <!-- SERVIÇOS -->
+    <section id="servicos">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Sobre o Combray</h2>
-            <p class="sub">
-              Especializado em eventos sociais e corporativos, com versatilidade e menus customizados — do coffee break ao banquete.
-            </p>
+            <h2>O que entregamos</h2>
+            <p class="sub">Soluções gastronômicas completas, com padrão alto, consistência e apresentação impecável.</p>
           </div>
         </div>
 
         <div class="grid-3" role="list">
           <article class="card" role="listitem">
-            <div class="icon" aria-hidden="true">🥂</div>
-            <h3>Eventos sociais</h3>
-            <p>Casamentos, aniversários e celebrações com acabamento de alta gastronomia.</p>
+            <div class="icon" aria-hidden="true">🏢</div>
+            <h3>Eventos corporativos</h3>
+            <p>Congressos, convenções, coquetéis, salas VIP e jantares executivos com padronização e agilidade.</p>
           </article>
 
           <article class="card" role="listitem">
-            <div class="icon" aria-hidden="true">🏢</div>
-            <h3>Eventos corporativos</h3>
-            <p>Coquetéis, jantares e coffee breaks com padronização e equipe profissional.</p>
+            <div class="icon" aria-hidden="true">🥂</div>
+            <h3>Eventos sociais</h3>
+            <p>Casamentos, aniversários e celebrações com menu alinhado ao seu estilo e serviço que traz tranquilidade.</p>
           </article>
 
           <article class="card" role="listitem">
             <div class="icon" aria-hidden="true">🍽️</div>
-            <h3>Experiência completa</h3>
-            <p>Planejamento, logística e serviço para transformar refeição em experiência memorável.</p>
+            <h3>Experiência gastronômica</h3>
+            <p>Cardápios autorais e versáteis: coffee breaks, coquetéis, jantares e banquetes — sempre com acabamento premium.</p>
           </article>
-        </div>
-
-        <div style="margin-top:14px" class="notice">
-          <strong style="color:var(--text)">Texto institucional (base pública):</strong>
-          o Combray combina alta gastronomia, excelência em servir e equipe qualificada — com versatilidade e menus customizados para diferentes tipos de evento.
         </div>
       </div>
     </section>
 
-    <!-- COMO TRABALHAMOS -->
+    <!-- COMO FUNCIONA -->
     <section id="como">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Como trabalhamos</h2>
-            <p class="sub">Um processo simples, transparente e focado em resultado (qualidade + experiência).</p>
+            <h2>Como funciona</h2>
+            <p class="sub">Um processo claro para garantir consistência, qualidade e uma entrega impecável.</p>
           </div>
         </div>
 
-        <div class="grid-3" role="list">
-          <article class="card" role="listitem">
-            <div class="icon" aria-hidden="true">1</div>
-            <h3>Briefing e proposta</h3>
-            <p>Entendemos o evento, perfil do público, restrições e expectativas para uma proposta objetiva.</p>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="icon" aria-hidden="true">2</div>
-            <h3>Menu e planejamento</h3>
-            <p>Cardápio customizado, cronograma, estrutura e logística para execução sem surpresas.</p>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="icon" aria-hidden="true">3</div>
-            <h3>Execução impecável</h3>
-            <p>Equipe treinada, serviço e apresentação no padrão premium do Combray.</p>
-          </article>
-        </div>
-
-        <div style="margin-top:14px" class="cta" aria-label="Chamada para ação">
-          <div>
-            <strong>Vamos desenhar o menu ideal do seu evento?</strong>
-            <span>Envie data, número de pessoas e formato. Respondemos com agilidade.</span>
+        <div class="steps" role="list">
+          <div class="step" role="listitem">
+            <b>1</b>
+            <h4>Briefing & proposta</h4>
+            <p>Entendemos o formato do evento, público, restrições e expectativas. Você recebe uma proposta objetiva.</p>
           </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn primary" href="#contato">Solicitar orçamento</a>
-            <a class="btn" href="#" id="ctaWhatsapp2">Falar no WhatsApp</a>
+          <div class="step" role="listitem">
+            <b>2</b>
+            <h4>Menu & planejamento</h4>
+            <p>Menu customizado + logística + cronograma. Tudo desenhado para evitar surpresas no dia.</p>
+          </div>
+          <div class="step" role="listitem">
+            <b>3</b>
+            <h4>Execução premium</h4>
+            <p>Equipe profissional, serviço fluido e apresentação elegante — do início ao último detalhe.</p>
           </div>
         </div>
       </div>
@@ -538,36 +663,59 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Imagens do trabalho</h2>
-            <p class="sub">Seleção de fotos (ambiente e pratos). Você pode trocar por fotos específicas de eventos/menus.</p>
+            <h2>Imagens</h2>
+            <p class="sub">Ambiente, serviço e pratos — um recorte do padrão estético e gastronômico do Combray.</p>
           </div>
         </div>
 
         <div class="gallery" aria-label="Galeria de imagens">
           <figure class="ph big">
-            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg" alt="Prato do Combray com apresentação refinada" loading="lazy" />
-            <figcaption class="label">Alta gastronomia</figcaption>
+            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/combray%2BJoinville%2B%286%29-1920w.jpeg" alt="Bar e ambiente do Combray" loading="lazy" />
+            <figcaption class="label">Ambiente & bar</figcaption>
           </figure>
 
           <figure class="ph med">
-            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-04-1920w.jpeg" alt="Prato com carne e acompanhamento" loading="lazy" />
-            <figcaption class="label">Menu autoral</figcaption>
+            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg" alt="Prato com apresentação refinada" loading="lazy" />
+            <figcaption class="label">Alta gastronomia</figcaption>
           </figure>
 
           <figure class="ph sm">
-            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-02-1920w.jpeg" alt="Entrada servida em prato claro" loading="lazy" />
-            <figcaption class="label">Entradas</figcaption>
+            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-04-1920w.jpeg" alt="Prato principal servido" loading="lazy" />
+            <figcaption class="label">Pratos autorais</figcaption>
           </figure>
 
           <figure class="ph sm">
-            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-7-1920w.jpeg" alt="Mesa com itens e velas em clima de evento" loading="lazy" />
+            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-7-1920w.jpeg" alt="Mesa e composição para evento" loading="lazy" />
             <figcaption class="label">Eventos</figcaption>
           </figure>
 
           <figure class="ph sm">
-            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-interno-01-1920w.jpeg" alt="Ambiente do restaurante preparado para atendimento" loading="lazy" />
-            <figcaption class="label">Ambiente</figcaption>
+            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-02-1920w.jpeg" alt="Entrada com apresentação minimalista" loading="lazy" />
+            <figcaption class="label">Entradas</figcaption>
           </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÁREAS ATENDIDAS -->
+    <section id="areas">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Áreas atendidas</h2>
+            <p class="sub">Atendimento para Joinville e região, e para Florianópolis (incluindo demandas de centros de convenções).</p>
+          </div>
+        </div>
+
+        <div class="band" role="note" aria-label="Cidades atendidas">
+          <div>
+            <strong>Joinville e região • Florianópolis</strong>
+            <span>Operação preparada para eventos sociais e corporativos com menu customizado e padrão premium.</span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#contato">Solicitar proposta</a>
+            <a class="btn" href="#contato">Falar com atendimento</a>
+          </div>
         </div>
       </div>
     </section>
@@ -578,12 +726,12 @@
         <div class="section-head">
           <div>
             <h2>Contato</h2>
-            <p class="sub">Preencha o formulário e enviaremos a proposta. Se preferir, fale direto no WhatsApp.</p>
+            <p class="sub">Envie as informações do evento e retornamos com rapidez. Você pode escolher Joinville ou Florianópolis.</p>
           </div>
         </div>
 
         <div class="contact">
-          <div class="contact-box">
+          <div class="box">
             <form id="formContato" novalidate>
               <div class="row2">
                 <div>
@@ -598,29 +746,32 @@
 
               <div class="row2">
                 <div>
-                  <label for="tipo">Tipo de evento *</label>
-                  <input id="tipo" name="tipo" type="text" placeholder="Corporativo, casamento, aniversário..." required />
+                  <label for="cidade">Atendimento em *</label>
+                  <select id="cidade" name="cidade" required>
+                    <option value="joinville">Joinville e região</option>
+                    <option value="florianopolis">Florianópolis</option>
+                  </select>
                 </div>
                 <div>
-                  <label for="data">Data do evento</label>
-                  <input id="data" name="data" type="date" />
+                  <label for="tipo">Tipo de evento *</label>
+                  <input id="tipo" name="tipo" type="text" placeholder="Corporativo, casamento, aniversário..." required />
                 </div>
               </div>
 
               <div class="row2">
                 <div>
-                  <label for="pessoas">Nº de pessoas (aprox.)</label>
-                  <input id="pessoas" name="pessoas" type="number" min="1" placeholder="Ex: 80" />
+                  <label for="data">Data do evento</label>
+                  <input id="data" name="data" type="date" />
                 </div>
                 <div>
-                  <label for="local">Local / Cidade</label>
-                  <input id="local" name="local" type="text" placeholder="Joinville, Florianópolis..." />
+                  <label for="pessoas">Nº de pessoas (aprox.)</label>
+                  <input id="pessoas" name="pessoas" type="number" min="1" placeholder="Ex: 120" />
                 </div>
               </div>
 
               <div>
                 <label for="msg">Mensagem</label>
-                <textarea id="msg" name="msg" placeholder="Conte preferências, restrições e formato (coffee break, coquetel, jantar, etc.)"></textarea>
+                <textarea id="msg" name="msg" placeholder="Conte preferências, restrições e formato (coffee break, coquetel, jantar...)"></textarea>
               </div>
 
               <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
@@ -631,27 +782,32 @@
             </form>
           </div>
 
-          <div class="stack" style="display:grid; gap:14px;">
-            <div class="contact-box">
-              <h3>Atendimento</h3>
-              <p class="sub" style="margin-top:6px;">
-                Telefone/WhatsApp e e-mail (dados públicos):
-              </p>
-
-              <div class="contact-links" style="margin-top:12px;">
+          <div style="display:grid; gap:14px;">
+            <div class="box">
+              <h3>Joinville e região</h3>
+              <p class="muted">Atendimento para eventos e experiências gastronômicas.</p>
+              <div class="contact-links">
                 <a class="btn" href="tel:+554730314133">📞 (47) 3031-4133</a>
-                <a class="btn primary" href="#" id="sideWhatsapp">💬 WhatsApp</a>
+                <a class="btn primary" href="#" id="btnWhatsJoin">💬 WhatsApp Joinville</a>
                 <a class="btn" href="mailto:eventos@combray.com.br">✉️ eventos@combray.com.br</a>
               </div>
-
-              <p class="small" style="margin-top:12px;">
-                Endereço/Unidade (ajuste conforme a página/filial que você quer divulgar).
-              </p>
             </div>
 
-            <div class="notice">
-              <strong style="color:var(--text)">Quer deixar ainda mais “top”?</strong><br />
-              Me diga qual foco do site (Restaurante / Eventos / Corporativo) e eu adapto o texto, CTAs e a ordem das seções para conversão máxima.
+            <div class="box">
+              <h3>Florianópolis</h3>
+              <p class="muted">Atendimento corporativo e demandas de eventos na capital.</p>
+              <div class="contact-links">
+                <a class="btn" href="tel:+554832514012">📞 (48) 3251-4012</a>
+                <a class="btn primary" href="#" id="btnWhatsFloripa">💬 WhatsApp Floripa</a>
+                <a class="btn" href="mailto:comercial@combray.com.br">✉️ comercial@combray.com.br</a>
+              </div>
+            </div>
+
+            <div class="box" style="background: rgba(15,17,21,.02);">
+              <h3>Quer um site ainda mais “luxo”?</h3>
+              <p class="muted">
+                Me diga se o foco é <b>Eventos</b> (principal) ou também <b>Restaurante</b> — e eu ajusto o texto e as chamadas para converter mais.
+              </p>
             </div>
           </div>
         </div>
@@ -664,95 +820,142 @@
       <div class="foot">
         <div class="small">© <span id="year"></span> Combray Gastronomia. Todos os direitos reservados.</div>
         <div class="small">
-          <a href="#sobre">Sobre</a> • <a href="#galeria">Imagens</a> • <a href="#contato">Contato</a>
+          <a href="#servicos">Serviços</a> • <a href="#galeria">Imagens</a> • <a href="#contato">Contato</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <!-- WhatsApp flutuante (mobile) -->
+  <div class="float-wa" aria-label="Atalho WhatsApp">
+    <a href="#" id="btnWhatsFloat" title="Falar no WhatsApp">WA</a>
+  </div>
+
   <script>
-    // Ajuste se quiser:
-    // WhatsApp: como o site indica "Telefone/Whatsapp (47) 3031-4133",
-    // aqui fica no formato internacional (Brasil +55 + DDD + número).
-    const WHATSAPP_NUMBER = "554730314133";
-    const EMAIL_TO = "eventos@combray.com.br";
+    // Números (formato internacional para wa.me)
+    const WHATS_JOINVILLE = "554730314133";   // (47) 3031-4133
+    const WHATS_FLORIPA   = "554833336530";   // (48) 3333-6530
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const EMAIL_JOINVILLE = "eventos@combray.com.br";
+    const EMAIL_FLORIPA   = "comercial@combray.com.br";
 
-    function val(id){ return document.getElementById(id).value.trim(); }
-
-    function buildText(){
-      const nome = val("nome");
-      const tel = val("tel");
-      const tipo = val("tipo");
-      const data = document.getElementById("data").value;
-      const pessoas = val("pessoas");
-      const local = val("local");
-      const msg = val("msg");
-
-      return [
-        "Olá, Combray Gastronomia! 👋",
-        "",
-        `Nome: ${nome}`,
-        `Telefone/WhatsApp: ${tel}`,
-        `Tipo de evento: ${tipo}`,
-        data ? `Data: ${data}` : null,
-        pessoas ? `Nº de pessoas: ${pessoas}` : null,
-        local ? `Local/Cidade: ${local}` : null,
-        msg ? `Mensagem: ${msg}` : null,
-        "",
-        "Gostaria de receber um orçamento, por favor."
-      ].filter(Boolean).join("\n");
-    }
+    // Helpers
+    const $ = (id) => document.getElementById(id);
+    const val = (id) => ($(id).value || "").trim();
 
     function isValid(){
       return Boolean(val("nome") && val("tel") && val("tipo"));
     }
 
-    function openWhatsApp(text){
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank", "noopener");
+    function pickChannel(){
+      const cidade = val("cidade");
+      if (cidade === "florianopolis") return { wa: WHATS_FLORIPA, email: EMAIL_FLORIPA, label: "Florianópolis" };
+      return { wa: WHATS_JOINVILLE, email: EMAIL_JOINVILLE, label: "Joinville e região" };
+    }
+
+    function buildText(){
+      const ch = pickChannel();
+      const nome = val("nome");
+      const tel = val("tel");
+      const tipo = val("tipo");
+      const data = $("data").value;
+      const pessoas = val("pessoas");
+      const msg = val("msg");
+
+      return [
+        `Olá, Combray Gastronomia! 👋`,
+        ``,
+        `Atendimento: ${ch.label}`,
+        `Nome: ${nome}`,
+        `Telefone/WhatsApp: ${tel}`,
+        `Tipo de evento: ${tipo}`,
+        data ? `Data: ${data}` : null,
+        pessoas ? `Nº de pessoas: ${pessoas}` : null,
+        msg ? `Mensagem: ${msg}` : null,
+        ``,
+        `Gostaria de receber um orçamento, por favor.`
+      ].filter(Boolean).join("\n");
+    }
+
+    function openWhatsApp(number, text){
+      window.open(`https://wa.me/${number}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
     }
 
     function setStatus(message){
-      const s = document.getElementById("status");
-      s.textContent = message || "";
+      $("status").textContent = message || "";
     }
+
+    // Ano no footer
+    $("year").textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const btnMenu = $("btnMenu");
+    btnMenu.addEventListener("click", () => {
+      const open = document.body.classList.toggle("menu-open");
+      btnMenu.setAttribute("aria-expanded", String(open));
+    });
+    // Fecha menu ao clicar em um link
+    $("mobilePanel").addEventListener("click", (e) => {
+      if (e.target.tagName.toLowerCase() === "a") {
+        document.body.classList.remove("menu-open");
+        btnMenu.setAttribute("aria-expanded", "false");
+      }
+    });
 
     // CTAs WhatsApp
-    function bindWhatsapp(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.addEventListener("click", (e) => {
-        e.preventDefault();
-        const text = isValid() ? buildText() : "Olá, Combray Gastronomia! Gostaria de um orçamento para um evento.";
-        openWhatsApp(text);
-      });
+    function quickText(){
+      const cidade = val("cidade");
+      const label = (cidade === "florianopolis") ? "Florianópolis" : "Joinville e região";
+      return `Olá, Combray Gastronomia! Gostaria de um orçamento para um evento em ${label}.`;
     }
-    bindWhatsapp("ctaWhatsapp");
-    bindWhatsapp("ctaWhatsapp2");
-    bindWhatsapp("sideWhatsapp");
 
-    // Form submit -> WhatsApp
-    document.getElementById("formContato").addEventListener("submit", (e) => {
+    $("btnWhatsHeader").addEventListener("click", (e) => {
       e.preventDefault();
-      if(!isValid()){
+      const ch = pickChannel();
+      openWhatsApp(ch.wa, isValid() ? buildText() : quickText());
+    });
+    $("btnWhatsMobile").addEventListener("click", (e) => {
+      e.preventDefault();
+      const ch = pickChannel();
+      openWhatsApp(ch.wa, isValid() ? buildText() : quickText());
+    });
+    $("btnWhatsFloat").addEventListener("click", (e) => {
+      e.preventDefault();
+      const ch = pickChannel();
+      openWhatsApp(ch.wa, isValid() ? buildText() : quickText());
+    });
+
+    $("btnWhatsJoin").addEventListener("click", (e) => {
+      e.preventDefault();
+      openWhatsApp(WHATS_JOINVILLE, isValid() ? buildText() : "Olá, gostaria de um orçamento em Joinville e região.");
+    });
+    $("btnWhatsFloripa").addEventListener("click", (e) => {
+      e.preventDefault();
+      openWhatsApp(WHATS_FLORIPA, isValid() ? buildText() : "Olá, gostaria de um orçamento em Florianópolis.");
+    });
+
+    // Form -> WhatsApp
+    $("formContato").addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!isValid()){
         setStatus("Preencha os campos obrigatórios: Nome, Telefone e Tipo de evento.");
         return;
       }
+      const ch = pickChannel();
       setStatus("Abrindo WhatsApp…");
-      openWhatsApp(buildText());
+      openWhatsApp(ch.wa, buildText());
     });
 
     // Email
-    document.getElementById("btnEmail").addEventListener("click", () => {
-      if(!isValid()){
+    $("btnEmail").addEventListener("click", () => {
+      if (!isValid()){
         setStatus("Preencha os campos obrigatórios: Nome, Telefone e Tipo de evento.");
         return;
       }
-      const subject = `Orçamento — ${val("tipo")} (${val("nome")})`;
+      const ch = pickChannel();
+      const subject = `Orçamento — ${val("tipo")} (${val("nome")}) — ${ch.label}`;
       const body = buildText();
-      window.location.href = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = `mailto:${ch.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   </script>
 </body>
