@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Combray Gastronomia — eventos, catering e experiências gastronômicas com excelência." />
+  <title>Combray Gastronomia</title>
+
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --line: rgba(255,255,255,.14);
+      --brand: #E9C46A;     /* dourado */
+      --brand2:#2A9D8F;     /* verde */
+      --danger:#ff6b6b;
+      --ok:#2ecc71;
+      --radius: 18px;
+      --shadow: 0 12px 40px rgba(0,0,0,.38);
+      --max: 1100px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(233,196,106,.18), transparent 55%),
+        radial-gradient(1000px 700px at 90% 0%, rgba(42,157,143,.18), transparent 55%),
+        linear-gradient(180deg, #070a0e, #0b0f14 30%, #070a0e);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    /* Util */
+    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+    .row{ display:flex; gap:24px; }
+    .stack{ display:flex; flex-direction:column; gap:14px; }
+    .muted{ color:var(--muted); }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      border-radius:999px;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      box-shadow: 0 8px 30px rgba(0,0,0,.20);
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.22); }
+    .btn:active{ transform: translateY(0px); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(233,196,106,.18), rgba(42,157,143,.14));
+      border-color: rgba(233,196,106,.35);
+    }
+    .btn.primary:hover{ border-color: rgba(233,196,106,.55); }
+
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card.pad{ padding:18px; }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,20,.62);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700;
+      letter-spacing:.4px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: conic-gradient(from 210deg, rgba(233,196,106,.9), rgba(42,157,143,.9), rgba(233,196,106,.9));
+      box-shadow: 0 12px 35px rgba(0,0,0,.30);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    nav ul{
+      margin:0; padding:0; list-style:none;
+      display:flex; align-items:center; gap:16px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    nav a{
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+      transition: background .12s ease, border-color .12s ease, color .12s ease;
+    }
+    nav a:hover{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.14);
+      color: var(--text);
+    }
+    .nav-actions{ display:flex; gap:10px; align-items:center; }
+
+    /* Hero */
+    .hero{ padding:56px 0 28px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    h1{
+      margin:0;
+      font-size: clamp(30px, 3.6vw, 48px);
+      line-height:1.1;
+      letter-spacing:-.5px;
+    }
+    .lead{ font-size: 16px; color: var(--muted); max-width: 58ch; }
+    .hero-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:10px; }
+    .hero-media{
+      min-height: 360px;
+      position:relative;
+    }
+    .hero-media .photo{
+      height:100%;
+      width:100%;
+      object-fit:cover;
+      filter: saturate(1.05) contrast(1.02);
+      opacity:.95;
+    }
+    .badge{
+      position:absolute;
+      left:14px; bottom:14px;
+      display:flex; flex-direction:column; gap:4px;
+      padding:12px 12px;
+      max-width: 80%;
+      background: rgba(11,15,20,.64);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+    }
+    .badge strong{ font-size:14px; }
+    .badge span{ font-size:13px; color: var(--muted); }
+
+    /* Sections */
+    section{ padding: 32px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin-bottom: 16px;
+    }
+    h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:-.2px;
+    }
+    .kicker{ font-size:13px; color: var(--muted); }
+
+    /* How we work */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .step{
+      padding:16px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .step .num{
+      width:34px; height:34px;
+      border-radius:12px;
+      display:grid; place-items:center;
+      background: rgba(233,196,106,.16);
+      border:1px solid rgba(233,196,106,.28);
+      color: var(--text);
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .step h3{ margin:0 0 6px; font-size:16px; }
+    .step p{ margin:0; color: var(--muted); font-size:14px; }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .g{
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      min-height: 150px;
+      position:relative;
+    }
+    .g img{
+      width:100%; height:100%; object-fit:cover;
+      transition: transform .25s ease, opacity .25s ease;
+      opacity:.92;
+    }
+    .g:hover img{ transform: scale(1.03); opacity:1; }
+    .g .label{
+      position:absolute; left:12px; bottom:12px;
+      padding:8px 10px;
+      border-radius: 14px;
+      background: rgba(11,15,20,.62);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 85%;
+    }
+    .g.big{ grid-column: span 6; min-height: 250px; }
+    .g.med{ grid-column: span 4; }
+    .g.sm{ grid-column: span 3; }
+
+    /* Services */
+    .services{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .service{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+    }
+    .service .icon{
+      width:42px; height:42px; border-radius:14px;
+      border:1px solid rgba(42,157,143,.30);
+      background: rgba(42,157,143,.14);
+      display:grid; place-items:center;
+      margin-bottom:10px;
+    }
+    .service h3{ margin:0 0 6px; font-size:16px; }
+    .service p{ margin:0; color: var(--muted); font-size:14px; }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    form{
+      display:grid;
+      gap:12px;
+    }
+    label{ font-size:13px; color: var(--muted); }
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(233,196,106,.45);
+      box-shadow: 0 0 0 4px rgba(233,196,106,.12);
+    }
+    textarea{ min-height:120px; resize: vertical; }
+    .form-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .notice{
+      padding:12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .status{
+      display:none;
+      padding:12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      font-size:14px;
+    }
+    .status.ok{ border-color: rgba(46,204,113,.35); }
+    .status.err{ border-color: rgba(255,107,107,.35); }
+
+    /* Footer */
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:22px 0 40px;
+      color: var(--muted);
+      font-size:14px;
+    }
+    .footer-grid{
+      display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-media{ min-height: 320px; }
+      .steps{ grid-template-columns: 1fr; }
+      .services{ grid-template-columns: 1fr; }
+      .contact-grid{ grid-template-columns: 1fr; }
+      .form-row{ grid-template-columns: 1fr; }
+      .g.big{ grid-column: span 12; }
+      .g.med{ grid-column: span 6; }
+      .g.sm{ grid-column: span 6; }
+      nav ul{ display:none; } /* simplifica no mobile */
+    }
+
+    /* Skip link (acessibilidade) */
+    .skip{
+      position:absolute; left:-9999px; top:auto;
+      width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      position:fixed; left:14px; top:14px;
+      width:auto; height:auto; padding:10px 12px;
+      border-radius:12px;
+      background: rgba(11,15,20,.92);
+      border:1px solid rgba(255,255,255,.18);
+      z-index:9999;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header>
+    <div class="container">
+      <div class="nav" aria-label="Barra de navegação">
+        <a class="brand" href="#topo" aria-label="Combray Gastronomia - Início">
+          <span class="logo" aria-hidden="true"></span>
+          <span>Combray Gastronomia</span>
+        </a>
+
+        <nav aria-label="Menu">
+          <ul>
+            <li><a href="#como-trabalhamos">Como trabalhamos</a></li>
+            <li><a href="#galeria">Imagens</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn" href="#contato">Solicitar orçamento</a>
+          <!-- Troque o número abaixo pelo WhatsApp real (com DDI +55) -->
+          <a class="btn primary" href="https://wa.me/5500000000000" target="_blank" rel="noopener">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero" id="topo">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="stack">
+            <span class="pill" aria-label="Destaque">
+              🍽️ Experiências gastronômicas para eventos • Atendimento sob medida
+            </span>
+
+            <h1>
+              Alta gastronomia para tornar seu evento
+              <span style="color:var(--brand)">memorável</span>.
+            </h1>
+
+            <p class="lead">
+              A Combray Gastronomia cria cardápios personalizados, executa com organização e cuidado
+              em cada detalhe — do pré-evento ao serviço final. Ideal para eventos corporativos,
+              sociais e experiências privativas.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#contato">Falar com a Combray</a>
+              <a class="btn" href="#como-trabalhamos">Ver como trabalhamos</a>
+              <a class="btn" href="#galeria">Ver imagens</a>
+            </div>
+
+            <div class="row" style="flex-wrap:wrap; margin-top:10px;">
+              <span class="pill">✅ Equipe treinada</span>
+              <span class="pill">✅ Montagem e finalização no local</span>
+              <span class="pill">✅ Padrão de qualidade</span>
+            </div>
+          </div>
+
+          <div class="card hero-media" aria-label="Imagem destaque do trabalho">
+            <!--
+              DICA: troque "images/hero.jpg" por uma foto real do seu trabalho.
+              Você pode criar uma pasta "images" e colocar as fotos lá.
+            -->
+            <img class="photo" src="images/hero.jpg" alt="Mesa posta e pratos preparados pela Combray Gastronomia" onerror="this.src='https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1200&q=80';" />
+            <div class="badge" role="note" aria-label="Destaque de qualidade">
+              <strong>Do planejamento à execução</strong>
+              <span>Cardápio, logística, equipe e apresentação — tudo alinhado ao seu evento.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO TRABALHAMOS -->
+    <section id="como-trabalhamos">
+      <div class="container">
+        <div class="section-title">
+          <div class="stack" style="gap:6px;">
+            <h2>Como a Combray trabalha</h2>
+            <span class="kicker">Um processo claro para entregar sabor, estética e tranquilidade.</span>
+          </div>
+          <span class="pill">📌 Atendimento sob medida</span>
+        </div>
+
+        <div class="steps" role="list">
+          <article class="step" role="listitem">
+            <div class="num" aria-hidden="true">1</div>
+            <h3>Briefing e proposta</h3>
+            <p>Entendemos o tipo de evento, número de pessoas, preferências e restrições para montar uma proposta completa.</p>
+          </article>
+
+          <article class="step" role="listitem">
+            <div class="num" aria-hidden="true">2</div>
+            <h3>Cardápio e planejamento</h3>
+            <p>Definimos o menu ideal, quantidade, cronograma e logística. Tudo alinhado para o dia do evento.</p>
+          </article>
+
+          <article class="step" role="listitem">
+            <div class="num" aria-hidden="true">3</div>
+            <h3>Execução e finalização</h3>
+            <p>Equipe organizada, montagem no local, serviço e apresentação impecáveis — com atenção aos detalhes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos">
+      <div class="container">
+        <div class="section-title">
+          <div class="stack" style="gap:6px;">
+            <h2>Serviços</h2>
+            <span class="kicker">Selecione o formato ideal — nós cuidamos do restante.</span>
+          </div>
+        </div>
+
+        <div class="services">
+          <article class="service">
+            <div class="icon" aria-hidden="true">🥂</div>
+            <h3>Eventos sociais</h3>
+            <p>Casamentos, aniversários, confraternizações e celebrações com menus personalizados.</p>
+          </article>
+
+          <article class="service">
+            <div class="icon" aria-hidden="true">🏢</div>
+            <h3>Eventos corporativos</h3>
+            <p>Coffee breaks, coquetéis, almoços executivos e eventos com padrão profissional.</p>
+          </article>
+
+          <article class="service">
+            <div class="icon" aria-hidden="true">👨‍🍳</div>
+            <h3>Experiência privativa</h3>
+            <p>Jantares e degustações com serviço exclusivo e apresentação de alto nível.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria">
+      <div class="container">
+        <div class="section-title">
+          <div class="stack" style="gap:6px;">
+            <h2>Imagens do trabalho</h2>
+            <span class="kicker">Troque as fotos pelos registros reais da Combray para ficar perfeito.</span>
+          </div>
+          <a class="btn" href="#contato">Quero um orçamento</a>
+        </div>
+
+        <div class="gallery" aria-label="Galeria de imagens">
+          <!--
+            Se você preferir: substitua os src por imagens locais, ex:
+            images/foto1.jpg, images/foto2.jpg...
+          -->
+          <div class="g big">
+            <img src="images/galeria-1.jpg" alt="Buffet e mesa montada em evento"
+                 onerror="this.src='https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1400&q=80';" />
+            <div class="label">Montagem e apresentação</div>
+          </div>
+
+          <div class="g big">
+            <img src="images/galeria-2.jpg" alt="Prato finalizado com alta gastronomia"
+                 onerror="this.src='https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1400&q=80';" />
+            <div class="label">Pratos autorais</div>
+          </div>
+
+          <div class="g med">
+            <img src="images/galeria-3.jpg" alt="Mesa de finger foods e entradas"
+                 onerror="this.src='https://images.unsplash.com/photo-1529694157872-4e0c0f02a57a?auto=format&fit=crop&w=1200&q=80';" />
+            <div class="label">Finger foods</div>
+          </div>
+
+          <div class="g med">
+            <img src="images/galeria-4.jpg" alt="Sobremesa bem apresentada"
+                 onerror="this.src='https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80';" />
+            <div class="label">Sobremesas</div>
+          </div>
+
+          <div class="g med">
+            <img src="images/galeria-5.jpg" alt="Equipe trabalhando na cozinha"
+                 onerror="this.src='https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1200&q=80';" />
+            <div class="label">Equipe e bastidores</div>
+          </div>
+        </div>
+
+        <div class="notice" style="margin-top:14px;">
+          <strong style="color:var(--text);">Dica rápida:</strong>
+          crie uma pasta <code style="color:var(--text)">images</code> ao lado deste arquivo HTML e coloque as fotos com os mesmos nomes
+          (<code style="color:var(--text)">hero.jpg</code>, <code style="color:var(--text)">galeria-1.jpg</code> etc.).
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+      <div class="container">
+        <div class="section-title">
+          <div class="stack" style="gap:6px;">
+            <h2>Contato</h2>
+            <span class="kicker">Envie as informações do evento e retornamos com proposta.</span>
+          </div>
+          <span class="pill">⏱️ Resposta rápida</span>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card pad">
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="stack" style="gap:6px;">
+                  <label for="nome">Nome</label>
+                  <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" required />
+                </div>
+                <div class="stack" style="gap:6px;">
+                  <label for="telefone">Telefone / WhatsApp</label>
+                  <input id="telefone" name="telefone" type="tel" autocomplete="tel" placeholder="(00) 00000-0000" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="stack" style="gap:6px;">
+                  <label for="email">E-mail</label>
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" />
+                </div>
+                <div class="stack" style="gap:6px;">
+                  <label for="tipo">Tipo de evento</label>
+                  <input id="tipo" name="tipo" type="text" placeholder="Corporativo, aniversário, casamento..." required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="stack" style="gap:6px;">
+                  <label for="data">Data do evento</label>
+                  <input id="data" name="data" type="date" />
+                </div>
+                <div class="stack" style="gap:6px;">
+                  <label for="pessoas">Nº de pessoas (aprox.)</label>
+                  <input id="pessoas" name="pessoas" type="number" min="1" placeholder="Ex: 50" />
+                </div>
+              </div>
+
+              <div class="stack" style="gap:6px;">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Conte sobre o local, horário, preferências e restrições alimentares..."></textarea>
+              </div>
+
+              <div class="status ok" id="statusOk" role="status" aria-live="polite">
+                ✅ Mensagem pronta! Vamos abrir seu WhatsApp/E-mail para envio.
+              </div>
+              <div class="status err" id="statusErr" role="alert" aria-live="assertive">
+                ❌ Verifique os campos obrigatórios (Nome, Telefone e Tipo de evento).
+              </div>
+
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:4px;">
+                <button class="btn primary" type="submit">Enviar pelo WhatsApp</button>
+                <button class="btn" type="button" id="sendEmailBtn">Enviar por e-mail</button>
+              </div>
+
+              <p class="muted" style="margin:8px 0 0; font-size:13px;">
+                Ao enviar, você concorda em ser contatado para retorno do orçamento.
+              </p>
+            </form>
+          </div>
+
+          <div class="stack">
+            <div class="card pad">
+              <h3 style="margin:0 0 8px; font-size:16px;">Canais</h3>
+              <p class="muted" style="margin:0 0 12px;">
+                Preencha o formulário ou fale direto:
+              </p>
+
+              <!-- Troque pelos dados reais -->
+              <div class="stack" style="gap:10px;">
+                <a class="btn" href="tel:+5500000000000">📞 Ligar: +55 (00) 00000-0000</a>
+                <a class="btn primary" href="https://wa.me/5500000000000" target="_blank" rel="noopener">💬 WhatsApp</a>
+                <a class="btn" href="mailto:contato@combraygastronomia.com.br">✉️ E-mail: contato@combraygastronomia.com.br</a>
+              </div>
+            </div>
+
+            <div class="card pad">
+              <h3 style="margin:0 0 8px; font-size:16px;">Atendimento</h3>
+              <p class="muted" style="margin:0;">
+                📍 Cidade/Região: <strong style="color:var(--text)">[Informe aqui]</strong><br />
+                🕒 Horário: <strong style="color:var(--text)">Seg–Sex 09:00–18:00</strong><br />
+                ✨ Entregas sob agendamento
+              </p>
+            </div>
+
+            <div class="notice">
+              <strong style="color:var(--text);">Quer deixar ainda melhor?</strong><br />
+              Me diga o <em>logo</em>, cores da marca, cidade e o texto exato dos serviços que eu ajusto tudo e preparo as fotos com os nomes certinhos.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="stack" style="gap:6px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span class="logo" aria-hidden="true" style="width:28px;height:28px;border-radius:10px;"></span>
+            <strong style="color:var(--text);">Combray Gastronomia</strong>
+          </div>
+          <span>© <span id="year"></span> • Todos os direitos reservados</span>
+        </div>
+
+        <div class="stack" style="gap:6px; text-align:right;">
+          <a href="#como-trabalhamos">Como trabalhamos</a>
+          <a href="#galeria">Imagens</a>
+          <a href="#contato">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Ano automático
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Ajuste estes dados para os reais:
+    const WHATSAPP_NUMBER = "5500000000000"; // exemplo: 5511999999999
+    const EMAIL_TO = "contato@combraygastronomia.com.br";
+
+    function getFormData() {
+      const nome = document.getElementById("nome").value.trim();
+      const telefone = document.getElementById("telefone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const tipo = document.getElementById("tipo").value.trim();
+      const data = document.getElementById("data").value;
+      const pessoas = document.getElementById("pessoas").value.trim();
+      const mensagem = document.getElementById("mensagem").value.trim();
+
+      return { nome, telefone, email, tipo, data, pessoas, mensagem };
+    }
+
+    function validateRequired({ nome, telefone, tipo }) {
+      return Boolean(nome && telefone && tipo);
+    }
+
+    function showStatus(ok) {
+      const okEl = document.getElementById("statusOk");
+      const errEl = document.getElementById("statusErr");
+      okEl.style.display = ok ? "block" : "none";
+      errEl.style.display = ok ? "none" : "block";
+    }
+
+    function buildMessage(data) {
+      const lines = [
+        "Olá, Combray Gastronomia! 👋",
+        "",
+        `Nome: ${data.nome}`,
+        `Telefone/WhatsApp: ${data.telefone}`,
+        data.email ? `E-mail: ${data.email}` : null,
+        `Tipo de evento: ${data.tipo}`,
+        data.data ? `Data do evento: ${data.data}` : null,
+        data.pessoas ? `Nº de pessoas (aprox.): ${data.pessoas}` : null,
+        data.mensagem ? `Mensagem: ${data.mensagem}` : "Mensagem: (não informado)",
+        "",
+        "Gostaria de receber um orçamento, por favor."
+      ].filter(Boolean);
+
+      return lines.join("\n");
+    }
+
+    // Enviar WhatsApp
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const data = getFormData();
+
+      if (!validateRequired(data)) {
+        showStatus(false);
+        return;
+      }
+      showStatus(true);
+
+      const text = buildMessage(data);
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank", "noopener");
+    });
+
+    // Enviar por e-mail
+    document.getElementById("sendEmailBtn").addEventListener("click", function () {
+      const data = getFormData();
+
+      if (!validateRequired(data)) {
+        showStatus(false);
+        return;
+      }
+      showStatus(true);
+
+      const subject = `Orçamento — ${data.tipo} (${data.nome})`;
+      const body = buildMessage(data);
+      const mailto = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
