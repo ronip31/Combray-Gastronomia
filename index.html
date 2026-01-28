@@ -1,288 +1,274 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0f0f10" />
-  <title>Combray Gastronomia — Eventos em Joinville e Florianópolis</title>
-  <meta name="description" content="Gastronomia para eventos sociais e corporativos em Joinville, região e Florianópolis. Menus personalizados, serviço impecável e experiência refinada." />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Combray Gastronomia — Gastronomia para Eventos" />
-  <meta property="og:description" content="Eventos sociais e corporativos em Joinville e Florianópolis. Menus personalizados e experiência refinada." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <title>Combray Gastronomia — Eventos em Joinville, região e Florianópolis</title>
+  <meta name="description" content="Combray Gastronomia — alta gastronomia para eventos sociais e corporativos. Joinville, região e Florianópolis. Parceria no Pátio Venâncio (Joinville)." />
 
   <style>
     :root{
-      --bg: #0c0c0d;
-      --bg2:#111113;
-      --card:#141417;
-      --text:#f5f5f7;
-      --muted:#b9bcc4;
+      --bg: #0b0b0c;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
       --line: rgba(255,255,255,.10);
-      --accent:#c7a26a;   /* dourado discreto */
-      --accent2:#7a1f2b;  /* vinho (eco do logo) */
-      --radius: 12px;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --max: 1120px;
+      --text: rgba(255,255,255,.88);
+      --muted: rgba(255,255,255,.66);
+      --muted2: rgba(255,255,255,.52);
+      --brand: #b12b2b; /* vinho elegante */
+      --gold: #d2b37a;  /* detalhe premium */
+      --radius: 14px;
+      --shadow: 0 14px 40px rgba(0,0,0,.45);
+      --shadow2: 0 8px 22px rgba(0,0,0,.35);
+      --max: 1140px;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body{
-      margin:0;
-      background: radial-gradient(1100px 700px at 20% -10%, rgba(199,162,106,.22), transparent 60%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(122,31,43,.18), transparent 62%),
-                  linear-gradient(180deg, var(--bg), var(--bg2));
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1100px 700px at 20% -10%, rgba(177,43,43,.22), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(210,179,122,.18), transparent 55%),
+                  var(--bg);
       color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height:1.45;
+      overflow-x: hidden;
     }
-
-    a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
-    .wrap{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
-
-    /* Accessible focus */
-    :focus-visible{
-      outline: 2px solid rgba(199,162,106,.85);
-      outline-offset: 3px;
-      border-radius: 10px;
-    }
+    a{ color: inherit; text-decoration: none; }
+    img{ max-width: 100%; display: block; }
+    .container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 
     /* Header */
     header{
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(12,12,13,.55);
-      border-bottom: 1px solid var(--line);
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(11,11,12,.88), rgba(11,11,12,.60));
+      border-bottom: 1px solid rgba(255,255,255,.07);
     }
-    .topbar{
+    .navRow{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
       padding: 14px 0;
+      gap: 14px;
     }
-    .brand{
+    .brandWrap{ display:flex; align-items:center; gap: 12px; min-width: 220px; }
+    .brandLogo{
+      width: 140px;
+      height: auto;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,.35));
+      opacity: .95;
+    }
+    .brandText{
+      display:none;
+      font-weight: 700;
+      letter-spacing: .2px;
+      line-height: 1.1;
+    }
+    nav.desktopNav{
       display:flex;
+      gap: 18px;
       align-items:center;
-      gap:12px;
-      min-width: 220px;
-    }
-    .brand img{
-      height:30px;
-      width:auto;
-      filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
-      opacity:.95;
-    }
-    .brand small{
-      display:block;
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 2px;
-    }
-
-    nav{ display:flex; align-items:center; gap:18px; }
-    nav a{
-      color: rgba(245,245,247,.88);
       font-size: 14px;
-      padding: 10px 10px;
-      border-radius: 10px;
-      transition: background .18s ease, color .18s ease;
+      color: var(--muted);
+      white-space: nowrap;
     }
-    nav a:hover{
+    nav.desktopNav a{
+      padding: 10px 10px;
+      border-radius: 12px;
+      transition: .2s ease;
+    }
+    nav.desktopNav a:hover{
+      color: rgba(255,255,255,.92);
       background: rgba(255,255,255,.06);
-      color: #fff;
     }
 
-    .ctaRow{ display:flex; align-items:center; gap:10px; }
+    .ctaRow{ display:flex; align-items:center; gap: 10px; }
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
-      padding: 10px 14px;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.90);
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.16); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(177,43,43,.95), rgba(177,43,43,.70));
+      border-color: rgba(177,43,43,.50);
+    }
+    .btn.primary:hover{ background: linear-gradient(135deg, rgba(177,43,43,1), rgba(177,43,43,.74)); }
+    .btn.ghost{
+      background: transparent;
+      border-color: rgba(255,255,255,.14);
+      box-shadow: none;
+    }
+    .btnIcon{ width: 18px; height: 18px; opacity: .95; }
+
+    /* Mobile menu */
+    .menuBtn{
+      display:none;
+      width: 44px; height: 44px;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      color: #fff;
-      font-weight: 600;
-      font-size: 14px;
       cursor:pointer;
-      transition: transform .14s ease, background .14s ease, border-color .14s ease;
-      user-select:none;
+      align-items:center; justify-content:center;
+      transition: .15s ease;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.18); }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(199,162,106,.95), rgba(199,162,106,.70));
-      color:#111;
-      border-color: rgba(199,162,106,.55);
-    }
-    .btn.primary:hover{ background: linear-gradient(135deg, rgba(199,162,106,1), rgba(199,162,106,.75)); }
-    .btn.ghost{
-      background: transparent;
-      border-color: rgba(255,255,255,.16);
-    }
+    .menuBtn:hover{ background: rgba(255,255,255,.10); }
 
-    /* Mobile nav */
-    .menuBtn{ display:none; }
     .mobileNav{
       display:none;
-      border-top: 1px solid var(--line);
-      padding: 12px 0 16px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      background: rgba(11,11,12,.86);
     }
-    .mobileNav a{ display:block; padding: 10px 6px; border-radius: 10px; }
-    .mobileNav a:hover{ background: rgba(255,255,255,.06); }
+    .mobileNavInner{
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 10px 0 16px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .22s ease;
+    }
+    .mobileNav.open .mobileNavInner{
+      max-height: 520px; /* suficiente para links + botões */
+    }
+    .mobileLinks{ display:flex; flex-direction:column; gap: 6px; }
+    .mobileLinks a{
+      padding: 12px 12px;
+      border-radius: 12px;
+      color: rgba(255,255,255,.86);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .mobileLinks a:active{ transform: translateY(1px); }
+    .mobileCTA{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    body.menu-open{ overflow:hidden; }
 
     /* Hero */
     .hero{
-      padding: 56px 0 26px;
+      position: relative;
+      min-height: 86vh;
+      display:flex;
+      align-items:center;
+      padding: 64px 0 40px;
     }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 26px;
-      align-items: stretch;
-    }
-    .heroCard{
-      position:relative;
-      border-radius: calc(var(--radius) + 6px);
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(20,20,23,.55);
-      box-shadow: var(--shadow);
-      min-height: 420px;
-    }
-    .heroMedia{
-      position:absolute;
-      inset:0;
+    .heroBg{
+      position:absolute; inset: 0;
       background:
-        linear-gradient(90deg, rgba(12,12,13,.92) 0%, rgba(12,12,13,.55) 55%, rgba(12,12,13,.12) 100%),
-        url("https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-interno-01-1920w.jpeg") center/cover no-repeat;
+        linear-gradient(90deg, rgba(11,11,12,.92) 0%, rgba(11,11,12,.72) 52%, rgba(11,11,12,.84) 100%),
+        radial-gradient(900px 500px at 10% 10%, rgba(177,43,43,.22), transparent 60%),
+        url("https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg") center/cover no-repeat;
+      filter: saturate(1.05) contrast(1.04);
       transform: scale(1.02);
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(to bottom, rgba(11,11,12,0) 40%, rgba(11,11,12,1) 100%);
+      pointer-events:none;
     }
     .heroContent{
       position:relative;
-      padding: 34px;
-      height:100%;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      gap: 14px;
-    }
-    .kicker{
-      display:inline-flex;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
       align-items:center;
-      gap:10px;
-      color: rgba(245,245,247,.88);
-      font-size: 13px;
-      letter-spacing:.12em;
-      text-transform: uppercase;
-    }
-    .dot{
-      width:8px; height:8px; border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 5px rgba(199,162,106,.18);
-    }
-    h1{
-      margin:0;
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 600;
-      line-height: 1.05;
-      font-size: clamp(34px, 4.2vw, 54px);
-      letter-spacing: -.02em;
-    }
-    .lead{
-      margin:0;
-      color: rgba(245,245,247,.82);
-      font-size: 16px;
-      max-width: 55ch;
-    }
-    .heroActions{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 6px;
-    }
-    .trust{
-      margin-top: 12px;
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      color: rgba(245,245,247,.84);
     }
     .pill{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      padding: 8px 10px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
+      gap: 8px;
+      padding: 8px 12px;
       border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.86);
       font-size: 13px;
+      width: fit-content;
     }
-    .pill b{ color:#fff; font-weight:600; }
-
-    .sideCard{
-      border-radius: calc(var(--radius) + 6px);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(20,20,23,.55);
-      box-shadow: var(--shadow);
-      overflow:hidden;
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(210,179,122,.12);
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(34px, 4.2vw, 56px);
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+    }
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.25vw, 18px);
+      line-height: 1.6;
+      max-width: 58ch;
+    }
+    .heroActions{
       display:flex;
-      flex-direction:column;
-      min-height: 420px;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
     }
-    .sideTop{
-      padding: 20px 20px 10px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      background:
-        radial-gradient(600px 260px at 30% 0%, rgba(199,162,106,.20), transparent 60%),
-        radial-gradient(520px 260px at 90% 0%, rgba(122,31,43,.16), transparent 58%),
-        rgba(20,20,23,.55);
-    }
-    .sideTop h3{
-      margin: 0 0 6px;
-      font-family:"Playfair Display", Georgia, serif;
-      font-weight: 600;
-      letter-spacing:-.01em;
-      font-size: 20px;
-    }
-    .sideTop p{
-      margin:0;
-      color: rgba(245,245,247,.78);
-      font-size: 14px;
-    }
-    .sideBody{
-      padding: 18px 20px 20px;
-      display:grid;
-      gap: 12px;
-    }
-    .mini{
+    .heroCard{
       border: 1px solid rgba(255,255,255,.10);
       border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .heroCardTop{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap: 12px;
+    }
+    .miniTitle{
+      font-weight: 700;
+      letter-spacing: .2px;
+      margin: 0;
+    }
+    .miniText{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .statGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .stat{
+      border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
-      padding: 14px;
+      border-radius: 12px;
+      padding: 12px;
     }
-    .mini strong{ display:block; font-size: 14px; }
-    .mini span{ display:block; color: rgba(245,245,247,.75); font-size: 13px; margin-top: 4px; }
-    .mini a{
-      color: rgba(199,162,106,.95);
-      font-weight: 600;
-    }
+    .stat b{ display:block; font-size: 16px; }
+    .stat span{ display:block; color: var(--muted2); font-size: 12px; margin-top: 4px; }
 
     /* Sections */
-    section{ padding: 54px 0; }
+    section{ padding: 64px 0; }
     .sectionHead{
       display:flex;
       justify-content:space-between;
@@ -290,658 +276,749 @@
       gap: 18px;
       margin-bottom: 18px;
     }
-    .sectionHead h2{
+    .sectionTitle{
       margin:0;
-      font-family:"Playfair Display", Georgia, serif;
-      font-weight: 600;
-      letter-spacing:-.01em;
-      font-size: clamp(24px, 3vw, 34px);
+      font-size: 26px;
+      letter-spacing: -0.01em;
     }
-    .sectionHead p{
-      margin:0;
-      color: rgba(245,245,247,.72);
-      max-width: 62ch;
-      font-size: 14.5px;
+    .sectionSub{
+      margin: 6px 0 0;
+      color: var(--muted);
+      max-width: 70ch;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    .divider{
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+      margin: 10px 0 0;
     }
 
     .grid3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-    }
-    .grid2{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      margin-top: 18px;
     }
     .card{
       border: 1px solid rgba(255,255,255,.10);
-      background: rgba(20,20,23,.55);
-      border-radius: calc(var(--radius) + 4px);
-      padding: 18px;
-      box-shadow: 0 14px 45px rgba(0,0,0,.26);
-    }
-    .card h4{
-      margin: 0 0 6px;
-      font-size: 15px;
-      letter-spacing:-.01em;
-    }
-    .card p{
-      margin:0;
-      color: rgba(245,245,247,.74);
-      font-size: 13.8px;
-    }
-    .icon{
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background:
-        radial-gradient(16px 16px at 30% 35%, rgba(255,255,255,.16), transparent 60%),
-        linear-gradient(135deg, rgba(199,162,106,.20), rgba(122,31,43,.14));
-      border: 1px solid rgba(255,255,255,.10);
-      margin-bottom: 10px;
-    }
-
-    /* Featured venues */
-    .venue{
-      padding: 0;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      box-shadow: var(--shadow2);
+      padding: 16px;
       overflow:hidden;
-      display:grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 0;
     }
-    .venueMedia{
-      min-height: 240px;
-      background:
-        linear-gradient(180deg, rgba(12,12,13,.25), rgba(12,12,13,.85)),
-        url("https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-02-1920w.jpeg") center/cover no-repeat;
-    }
-    .venueBody{
-      padding: 18px;
-      display:grid;
-      gap: 10px;
-      align-content:start;
-    }
-    .venueBody .meta{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .card h3{ margin: 0 0 8px; font-size: 16px; }
+    .card p{ margin: 0; color: var(--muted); line-height: 1.6; font-size: 14px; }
+    .tagRow{ display:flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
     .tag{
       font-size: 12px;
       padding: 7px 10px;
       border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.82);
+      white-space: nowrap;
+    }
+
+    /* How we work */
+    .steps{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items:stretch;
+      margin-top: 16px;
+    }
+    .stepList{ display:grid; gap: 12px; }
+    .step{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+    .stepIcon{
+      width: 34px; height: 34px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(210,179,122,.30), rgba(177,43,43,.20));
+      border: 1px solid rgba(255,255,255,.12);
+      display:flex; align-items:center; justify-content:center;
+      flex: 0 0 auto;
+    }
+    .stepIcon svg{ width: 18px; height: 18px; opacity: .95; }
+    .step b{ display:block; margin: 1px 0 4px; }
+    .step small{ display:block; color: var(--muted); line-height: 1.6; font-size: 13px; }
+
+    .photoCard{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      position:relative;
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+      min-height: 320px;
+    }
+    .photoCard .bg{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.70)),
+        url("https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-interno-01-1920w.jpeg") center/cover no-repeat;
+      transform: scale(1.02);
+      filter: saturate(1.04) contrast(1.03);
+    }
+    .photoCard .content{
+      position:relative;
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      height:100%;
+    }
+    .photoCard .content b{ font-size: 16px; }
+    .photoCard .content span{ color: rgba(255,255,255,.78); font-size: 13px; line-height: 1.55; margin-top: 6px; }
+
+    /* Pátio Venâncio highlight */
+    .venue{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:stretch;
+      margin-top: 18px;
+    }
+    .venueLeft{
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
-      color: rgba(245,245,247,.82);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow2);
+    }
+    .venueLogoRow{ display:flex; align-items:center; gap: 10px; margin-bottom: 10px; }
+    .venueLogoRow img{ height: 34px; width:auto; opacity:.95; }
+    .venueLeft p{ color: var(--muted); line-height:1.65; margin: 8px 0 0; font-size: 14px; }
+    .venueBullets{
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display:grid;
+      gap: 10px;
+    }
+    .venueBullets li{
+      display:flex; gap: 10px; align-items:flex-start;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 12px;
+      padding: 12px;
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .check{
+      width: 18px; height: 18px; flex:0 0 auto; margin-top: 2px;
+      color: var(--gold);
+    }
+    .venueGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .venueGrid a{
+      border-radius: 14px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      position: relative;
+      min-height: 170px;
+      box-shadow: var(--shadow2);
+    }
+    .venueGrid img{
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.03);
+      transition: transform .25s ease;
+    }
+    .venueGrid a:hover img{ transform: scale(1.06); }
+    .venueGrid a::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,.55) 100%);
+      pointer-events:none;
     }
 
     /* Gallery */
     .gallery{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 10px;
+      margin-top: 18px;
     }
-    .shot{
-      border-radius: calc(var(--radius) + 6px);
+    .gItem{
+      grid-column: span 4;
+      border-radius: 14px;
       overflow:hidden;
       border: 1px solid rgba(255,255,255,.10);
-      background: rgba(20,20,23,.55);
-      box-shadow: var(--shadow);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+      position: relative;
+      min-height: 190px;
+      cursor: pointer;
     }
-    .shot img{ width:100%; height:100%; object-fit:cover; }
-    .shots2{
-      display:grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 14px;
-    }
-    .caption{
-      padding: 12px 14px 14px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: rgba(245,245,247,.74);
-      font-size: 13px;
+    .gItem.big{ grid-column: span 8; min-height: 260px; }
+    .gItem img{ width:100%; height:100%; object-fit: cover; transform: scale(1.02); transition: transform .25s ease; }
+    .gItem:hover img{ transform: scale(1.06); }
+    .gItem .label{
+      position:absolute;
+      left: 12px; bottom: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.55);
+      border: 1px solid rgba(255,255,255,.16);
+      font-size: 12px;
+      color: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
     }
 
     /* Testimonials */
-    .testi{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-    blockquote{
-      margin:0;
-      padding: 18px;
-      border-radius: calc(var(--radius) + 4px);
+    .quoteGrid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+    .quote{
       border: 1px solid rgba(255,255,255,.10);
-      background: rgba(20,20,23,.55);
-      box-shadow: 0 14px 45px rgba(0,0,0,.26);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow2);
       position: relative;
       overflow:hidden;
     }
-    blockquote:before{
+    .quote::before{
       content:"“";
       position:absolute;
-      top:-22px;
-      right: 14px;
-      font-family:"Playfair Display", Georgia, serif;
-      font-size: 92px;
-      color: rgba(199,162,106,.18);
-      line-height:1;
+      left: 12px; top: -8px;
+      font-size: 56px;
+      color: rgba(210,179,122,.20);
+      font-weight: 900;
+      line-height: 1;
     }
-    blockquote p{
-      margin:0 0 10px;
-      color: rgba(245,245,247,.86);
-      font-size: 15px;
-      letter-spacing:-.01em;
-      max-width: 90ch;
-    }
-    blockquote footer{
-      display:flex;
-      justify-content:space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      color: rgba(245,245,247,.62);
-      font-size: 13px;
-    }
-    .stars{ color: rgba(199,162,106,.95); letter-spacing: .08em; }
-
-    /* CTA band */
-    .band{
-      border-top: 1px solid rgba(255,255,255,.10);
-      border-bottom: 1px solid rgba(255,255,255,.10);
-      background:
-        radial-gradient(720px 280px at 20% 0%, rgba(199,162,106,.18), transparent 62%),
-        radial-gradient(820px 280px at 85% 0%, rgba(122,31,43,.14), transparent 62%),
-        rgba(20,20,23,.48);
-    }
-    .bandInner{
-      padding: 26px 0;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .bandInner h3{
-      margin:0;
-      font-family:"Playfair Display", Georgia, serif;
-      font-weight: 600;
-      letter-spacing:-.01em;
-      font-size: 22px;
-    }
-    .bandInner p{
-      margin: 6px 0 0;
-      color: rgba(245,245,247,.70);
-      font-size: 14px;
-    }
+    .quote p{ margin: 12px 0 0; color: rgba(255,255,255,.86); line-height: 1.65; font-size: 14px; }
+    .quote .who{ margin-top: 12px; color: var(--muted2); font-size: 12px; display:flex; justify-content:space-between; gap: 10px; }
 
     /* Contact */
-    .contactGrid{
+    .contact{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      align-items: start;
+      margin-top: 18px;
     }
-    .contactCard{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(20,20,23,.55);
-      border-radius: calc(var(--radius) + 6px);
-      overflow:hidden;
-      box-shadow: var(--shadow);
-    }
-    .contactHead{
-      padding: 18px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      background:
-        radial-gradient(520px 240px at 20% 0%, rgba(199,162,106,.18), transparent 62%),
-        rgba(20,20,23,.55);
-    }
-    .contactHead h4{ margin:0 0 6px; font-size: 16px; }
-    .contactHead p{ margin:0; color: rgba(245,245,247,.72); font-size: 13.6px; }
-
-    .contactBody{ padding: 16px 18px 18px; display:grid; gap: 12px; }
-    .kv{
-      display:grid;
-      gap: 6px;
-      padding: 12px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-    }
-    .kv b{ font-size: 13px; }
-    .kv span{ color: rgba(245,245,247,.72); font-size: 13px; }
-    .kv a{ color: rgba(199,162,106,.95); font-weight: 700; }
-
     form{
-      display:grid;
-      gap: 10px;
-      margin-top: 8px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow2);
     }
-    label{ font-size: 12.5px; color: rgba(245,245,247,.70); }
-    input, textarea, select{
+    .fieldRow{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    label{ display:block; font-size: 12px; color: var(--muted2); margin: 10px 0 6px; }
+    input, select, textarea{
       width:100%;
       padding: 12px 12px;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(0,0,0,.22);
-      color: var(--text);
-      font-size: 14px;
+      color: rgba(255,255,255,.90);
       outline: none;
     }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(210,179,122,.42);
+      box-shadow: 0 0 0 4px rgba(210,179,122,.12);
+    }
     textarea{ min-height: 110px; resize: vertical; }
+    .formActions{ display:flex; gap: 10px; flex-wrap:wrap; margin-top: 12px; }
+    .note{ margin: 10px 0 0; font-size: 12px; color: var(--muted2); line-height: 1.55; }
 
-    .hint{ color: rgba(245,245,247,.55); font-size: 12px; margin-top: 6px; }
+    .contactInfo{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow2);
+      display:grid;
+      gap: 12px;
+    }
+    .infoBlock{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .infoBlock b{ display:block; margin-bottom: 6px; }
+    .infoBlock a{ color: rgba(255,255,255,.88); text-decoration: underline; text-decoration-color: rgba(210,179,122,.30); }
+    .map{
+      width:100%;
+      border: 0;
+      border-radius: 14px;
+      overflow:hidden;
+      height: 230px;
+      filter: saturate(1.06) contrast(1.03);
+    }
 
     footer{
-      padding: 26px 0 40px;
-      color: rgba(245,245,247,.55);
-      border-top: 1px solid rgba(255,255,255,.10);
+      padding: 26px 0;
+      border-top: 1px solid rgba(255,255,255,.07);
+      color: var(--muted2);
+      font-size: 12px;
     }
-    .footGrid{
+    .footerRow{
       display:flex;
       justify-content:space-between;
+      align-items:flex-start;
       gap: 14px;
       flex-wrap: wrap;
-      align-items: center;
     }
-    .footGrid a{ color: rgba(245,245,247,.72); }
-    .footGrid a:hover{ color: #fff; }
 
     /* Responsive */
     @media (max-width: 980px){
-      .heroGrid{ grid-template-columns: 1fr; }
-      .sideCard{ min-height: auto; }
-      .grid3{ grid-template-columns: 1fr; }
-      .grid2{ grid-template-columns: 1fr; }
+      .heroContent{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
       .venue{ grid-template-columns: 1fr; }
-      .venueMedia{ min-height: 220px; }
-      .gallery{ grid-template-columns: 1fr; }
-      .shots2{ grid-template-rows: auto; grid-template-columns: 1fr 1fr; }
-      .contactGrid{ grid-template-columns: 1fr; }
+      .quoteGrid{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+      .gItem{ grid-column: span 6; }
+      .gItem.big{ grid-column: span 12; }
     }
     @media (max-width: 720px){
-      nav, .ctaRow{ display:none; }
-      .menuBtn{ display:inline-flex; }
+      nav.desktopNav, .ctaRow{ display:none; }
+      .menuBtn{ display:flex; }
       .mobileNav{ display:block; }
-      .heroContent{ padding: 22px; }
-      .heroCard{ min-height: 420px; }
-      .shots2{ grid-template-columns: 1fr; }
+      .brandLogo{ width: 128px; }
+      .fieldRow{ grid-template-columns: 1fr; }
+      .statGrid{ grid-template-columns: 1fr; }
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-      .btn{ transition:none; }
+      *{ transition: none !important; scroll-behavior: auto; }
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(8px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 2000;
+    }
+    .lightbox.open{ display:flex; }
+    .lightboxCard{
+      width: min(980px, 100%);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(12,12,13,.88);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .lightboxImg{
+      width:100%;
+      height: auto;
+      display:block;
+    }
+    .lightboxClose{
+      position:absolute;
+      top: 10px; right: 10px;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.40);
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
     }
   </style>
-
-  <!-- SEO: Structured data (edite se quiser) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Catering",
-    "name":"Combray Gastronomia",
-    "areaServed":[
-      {"@type":"City","name":"Joinville"},
-      {"@type":"City","name":"Florianópolis"},
-      {"@type":"AdministrativeArea","name":"Região de Joinville"}
-    ],
-    "image":[
-      "https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-interno-01-1920w.jpeg",
-      "https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg"
-    ],
-    "sameAs":[
-      "https://www.instagram.com/combraygastronomia/"
-    ]
-  }
-  </script>
 </head>
 
 <body>
-  <header>
-    <div class="wrap">
-      <div class="topbar">
-        <a class="brand" href="#top" aria-label="Ir para o início">
-          <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-55061806-609eba1e-1920w.png" alt="Combray Gastronomia (logo)" loading="eager" />
-          <div style="display:none;">
-            <strong>Combray Gastronomia</strong>
-            <small>Joinville • Florianópolis</small>
-          </div>
+  <header id="top">
+    <div class="container">
+      <div class="navRow">
+        <a class="brandWrap" href="#top" aria-label="Combray Gastronomia - Início">
+          <img class="brandLogo" src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-55061806-609eba1e-1920w.png" alt="Logo Combray Gastronomia" />
+          <span class="brandText">Combray Gastronomia</span>
         </a>
 
-        <nav aria-label="Navegação principal">
+        <nav class="desktopNav" aria-label="Menu principal">
+          <a href="#servicos">Serviços</a>
           <a href="#como">Como trabalhamos</a>
-          <a href="#solucoes">Soluções</a>
-          <a href="#espacos">Espaços</a>
-          <a href="#portfolio">Portfólio</a>
+          <a href="#patio">Pátio Venâncio</a>
+          <a href="#galeria">Galeria</a>
           <a href="#depoimentos">Depoimentos</a>
           <a href="#contato">Contato</a>
         </nav>
 
         <div class="ctaRow">
-          <a class="btn ghost" href="#portfolio">Ver portfólio</a>
-          <a class="btn primary" href="#contato">Solicitar orçamento</a>
+          <a class="btn ghost" href="#contato">
+            <svg class="btnIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V7Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M7 7l5 4 5-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Solicitar proposta
+          </a>
+          <a class="btn primary" href="#contato">
+            <svg class="btnIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 8h10M7 12h10M7 16h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M4 6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H7l-3 2V6Z" stroke="currentColor" stroke-width="1.2" opacity=".7"/>
+            </svg>
+            Fale conosco
+          </a>
         </div>
 
-        <button class="btn menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav">
-          Menu
+        <button class="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav" data-menu-btn>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
         </button>
       </div>
+    </div>
 
-      <div class="mobileNav" id="mobileNav" hidden>
-        <a href="#como">Como trabalhamos</a>
-        <a href="#solucoes">Soluções</a>
-        <a href="#espacos">Espaços</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#contato">Contato</a>
-        <div style="display:flex; gap:10px; padding-top:10px;">
-          <a class="btn ghost" style="flex:1" href="#portfolio">Ver portfólio</a>
-          <a class="btn primary" style="flex:1" href="#contato">Orçamento</a>
+    <div class="mobileNav" id="mobileNav" data-mobile-nav>
+      <div class="mobileNavInner">
+        <div class="mobileLinks" aria-label="Menu mobile">
+          <a href="#servicos">Serviços</a>
+          <a href="#como">Como trabalhamos</a>
+          <a href="#patio">Pátio Venâncio</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <div class="mobileCTA">
+          <a class="btn ghost" href="#contato">Solicitar proposta</a>
+          <a class="btn primary" href="#contato">Fale conosco</a>
         </div>
       </div>
     </div>
   </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <div class="hero">
-      <div class="wrap">
-        <div class="heroGrid">
-          <div class="heroCard" role="region" aria-label="Apresentação">
-            <div class="heroMedia" aria-hidden="true"></div>
-            <div class="heroContent">
-              <div class="kicker"><span class="dot"></span> Gastronomia para eventos</div>
+  <!-- HERO -->
+  <main>
+    <section class="hero" aria-label="Apresentação">
+      <div class="heroBg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="heroContent">
+          <div>
+            <div class="pill"><span class="dot"></span> Alta gastronomia para eventos — Joinville, região e Florianópolis</div>
+            <h1>Seu evento com presença, sabor e acabamento impecável.</h1>
+            <p class="lead">
+              O Combray Gastronomia assina experiências para eventos sociais e corporativos — do coffee break ao jantar completo —
+              com equipe preparada, execução precisa e menus personalizados.
+            </p>
 
-              <h1>Refino, sabor e serviço impecável para o seu evento.</h1>
+            <div class="heroActions">
+              <a class="btn primary" href="#contato">Pedir orçamento</a>
+              <a class="btn ghost" href="#patio">Ver Pátio Venâncio</a>
+              <a class="btn ghost" href="#galeria">Ver galeria</a>
+            </div>
 
-              <p class="lead">
-                Atendimento em <b>Joinville e região</b> e também em <b>Florianópolis</b>.
-                Agora com a gastronomia assinando eventos no <b>Pátio Venâncio (Sítio Venâncio)</b>, em Joinville.
-              </p>
+            <div class="divider"></div>
 
-              <div class="heroActions">
-                <a class="btn primary" href="#contato">Solicitar orçamento</a>
-                <a class="btn ghost" href="#como">Entender o processo</a>
-              </div>
-
-              <div class="trust" aria-label="Destaques">
-                <span class="pill"><b>Menus</b> personalizados</span>
-                <span class="pill"><b>Eventos</b> sociais & corporativos</span>
-                <span class="pill"><b>Do</b> coffee break ao banquete</span>
-              </div>
+            <div class="statGrid" role="list" aria-label="Destaques">
+              <div class="stat" role="listitem"><b>Social</b><span>Casamentos, 15 anos, celebrações</span></div>
+              <div class="stat" role="listitem"><b>Corporativo</b><span>Convenções, lançamentos, treinamentos</span></div>
+              <div class="stat" role="listitem"><b>Personalizado</b><span>Menus sob medida e serviço de excelência</span></div>
             </div>
           </div>
 
-          <aside class="sideCard" aria-label="Atuação e contatos rápidos">
-            <div class="sideTop">
-              <h3>Atuação com padrão alto</h3>
-              <p>Estrutura, equipe e logística para eventos que exigem excelência.</p>
+          <aside class="heroCard" aria-label="Atendimento e foco">
+            <div class="heroCardTop">
+              <div>
+                <p class="miniTitle">Atendimento orientado ao seu objetivo</p>
+                <p class="miniText">
+                  Você conta com curadoria de cardápio, logística e operação completa — tudo pensado para encantar seus convidados.
+                </p>
+              </div>
+              <span class="tag" title="Atendimento por Joinville e região">Joinville & Região</span>
             </div>
-
-            <div class="sideBody">
-              <div class="mini">
-                <strong>Joinville & região</strong>
-                <span>Eventos, casamentos, corporativo e experiências gastronômicas.</span>
-              </div>
-              <div class="mini">
-                <strong>Florianópolis</strong>
-                <span>Atendimento no CentroSul e na região. <a href="#contato">Falar com o time</a></span>
-              </div>
-              <div class="mini">
-                <strong>Quer agilizar?</strong>
-                <span>
-                  <a href="#" id="quickWhats">Chamar no WhatsApp</a> com a mensagem pronta.
-                </span>
-              </div>
-              <div class="mini">
-                <strong>O que você recebe</strong>
-                <span>Proposta clara, menu pensado para o seu público e execução precisa.</span>
-              </div>
-              <p class="hint">Dica: para campanhas, use este site como landing page (Instagram/Google Ads).</p>
+            <div class="tagRow" aria-label="Tipos de serviço">
+              <span class="tag">Coffee break</span>
+              <span class="tag">Coquetéis</span>
+              <span class="tag">Finger food</span>
+              <span class="tag">Jantares</span>
+              <span class="tag">Banquetes</span>
             </div>
+            <div class="divider"></div>
+            <p class="miniText">
+              Também atendemos eventos em <b>Florianópolis</b> e Santa Catarina, com padrão consistente de execução.
+            </p>
           </aside>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2 class="sectionTitle">Serviços</h2>
+            <p class="sectionSub">
+              Do planejamento ao último detalhe do serviço: menus versáteis e operação preparada para eventos sociais e corporativos.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <h3>Eventos sociais</h3>
+            <p>Casamentos, mini weddings, 15 anos, aniversários e celebrações com experiência gastronômica marcante.</p>
+            <div class="tagRow">
+              <span class="tag">Empratado</span><span class="tag">Buffet</span><span class="tag">Ilhas gastronômicas</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Corporativo</h3>
+            <p>Coffee breaks, coquetéis, jantares e banquetes para convenções, lançamentos e treinamentos — com ritmo e precisão.</p>
+            <div class="tagRow">
+              <span class="tag">Coffee break</span><span class="tag">Coquetel</span><span class="tag">Banquete</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Menus personalizados</h3>
+            <p>Curadoria conforme perfil do evento e convidados, com apresentação refinada e foco em experiência.</p>
+            <div class="tagRow">
+              <span class="tag">Menu sob medida</span><span class="tag">Execução premium</span><span class="tag">Equipe treinada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- COMO TRABALHAMOS -->
     <section id="como">
-      <div class="wrap">
+      <div class="container">
         <div class="sectionHead">
           <div>
-            <h2>Como a Combray trabalha</h2>
-            <p>
-              Um processo objetivo para garantir experiência, timing e consistência — do primeiro contato ao último detalhe do serviço.
+            <h2 class="sectionTitle">Como trabalhamos</h2>
+            <p class="sectionSub">
+              Um processo simples para você — e extremamente criterioso nos bastidores. Resultado: fluidez, beleza e sabor.
             </p>
           </div>
         </div>
 
-        <div class="grid3">
-          <div class="card">
-            <div class="icon" aria-hidden="true"></div>
-            <h4>1) Briefing inteligente</h4>
-            <p>Entendemos tipo de evento, público, estilo, restrições e expectativas. Você sai com clareza de opções e investimento.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"></div>
-            <h4>2) Menu & proposta</h4>
-            <p>Menus tradicionais, empratados e finger food. Ajustes para vegetarianos e necessidades específicas (quando aplicável).</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"></div>
-            <h4>3) Execução impecável</h4>
-            <p>Produção, montagem e serviço com equipe preparada. Atenção ao ritmo do evento e à apresentação.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOLUÇÕES -->
-    <section id="solucoes">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>Soluções para encantar convidados</h2>
-            <p>
-              Versatilidade para formatos diferentes: do coffee break corporativo ao jantar de casamento com padrão internacional.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid3">
-          <div class="card">
-            <div class="icon" aria-hidden="true"></div>
-            <h4>Casamentos</h4>
-            <p>Experiências completas: coquetel, jantar, sobremesas e operação alinhada ao cerimonial.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"></div>
-            <h4>Eventos corporativos</h4>
-            <p>Do básico bem feito ao premium: coffee break, happy hour, coquetéis e jantares executivos.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"></div>
-            <h4>Finger food & coquetéis</h4>
-            <p>Fluidez, apresentação refinada e variedade para manter o ritmo do evento.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"></div>
-            <h4>Empratados</h4>
-            <p>Quando o evento pede elegância e tempo de serviço bem controlado, com pratos memoráveis.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"></div>
-            <h4>Buffet</h4>
-            <p>Opções tradicionais e completas, com foco em qualidade e excelente apresentação.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true"></div>
-            <h4>Centros de convenções</h4>
-            <p>Operação preparada para alta demanda e públicos grandes, com consistência e padrão.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ESPAÇOS EM DESTAQUE -->
-    <section id="espacos">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>Espaços atendidos em Joinville e Florianópolis</h2>
-            <p>
-              Além de atender no seu local, a Combray assina gastronomia em espaços referência na região.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid2">
-          <div class="card venue">
-            <div class="venueMedia" aria-hidden="true"></div>
-            <div class="venueBody">
-              <h4>Pátio Venâncio (Sítio Venâncio) — Joinville</h4>
-              <p>Espaço em meio à natureza para casamentos e eventos, com buffet em parceria com a Combray.</p>
-              <div class="meta">
-                <span class="tag">Casamentos</span>
-                <span class="tag">Corporativo</span>
-                <span class="tag">Cerimônia ao ar livre</span>
+        <div class="steps">
+          <div class="stepList">
+            <div class="step">
+              <div class="stepIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h7M7 17h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
               </div>
-              <a class="btn ghost" href="#contato">Solicitar orçamento para o Pátio Venâncio</a>
+              <div>
+                <b>1) Briefing do evento</b>
+                <small>Entendemos objetivo, estilo, local, horário e perfil dos convidados para direcionar a proposta ideal.</small>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="stepIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 8h14M6 16h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <b>2) Curadoria do menu</b>
+                <small>Opções equilibradas (do tradicional ao contemporâneo), pensando em fluxo de serviço e experiência.</small>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="stepIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <b>3) Operação impecável</b>
+                <small>Equipe treinada, montagem organizada, serviço pontual e apresentação consistente em cada etapa.</small>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="stepIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 17c3 2 7 2 10 0M9 10h.01M15 10h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <b>4) Finalização e pós-evento</b>
+                <small>Fechamento com atenção ao detalhe — e feedback para melhoria contínua.</small>
+              </div>
             </div>
           </div>
 
-          <div class="card venue">
-            <div class="venueMedia" style="background-image:
-              linear-gradient(180deg, rgba(12,12,13,.25), rgba(12,12,13,.85)),
-              url('https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-interno-01-1920w.jpeg');" aria-hidden="true"></div>
-            <div class="venueBody">
-              <h4>Joinville Country Club — Joinville</h4>
-              <p>Estrutura completa e sofisticada, com menus personalizados e serviço de alto padrão.</p>
-              <div class="meta">
-                <span class="tag">Salões & área verde</span>
-                <span class="tag">Eventos premium</span>
-                <span class="tag">Menus personalizados</span>
-              </div>
-              <a class="btn ghost" href="#contato">Falar com um consultor</a>
-            </div>
-          </div>
-
-          <div class="card venue">
-            <div class="venueMedia" style="background-image:
-              linear-gradient(180deg, rgba(12,12,13,.25), rgba(12,12,13,.85)),
-              url('https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg');" aria-hidden="true"></div>
-            <div class="venueBody">
-              <h4>CentroSul — Florianópolis</h4>
-              <p>Operação preparada para eventos e convenções, com estrutura e equipe qualificada.</p>
-              <div class="meta">
+          <div class="photoCard" aria-label="Ambiente Combray">
+            <div class="bg" aria-hidden="true"></div>
+            <div class="content">
+              <b>Refino na apresentação</b>
+              <span>Da gastronomia ao serviço: estética, ritmo e cuidado em cada detalhe do seu evento.</span>
+              <div class="tagRow" style="margin-top:12px">
+                <span class="tag">Joinville</span>
+                <span class="tag">Região</span>
                 <span class="tag">Florianópolis</span>
-                <span class="tag">Convenções</span>
-                <span class="tag">Coffee break & coquetéis</span>
               </div>
-              <a class="btn ghost" href="#contato">Orçamento em Florianópolis</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <h4>Atendemos no seu espaço</h4>
-            <p>
-              Casa, empresa, sítio, salão, praia ou local personalizado — a Combray leva a experiência completa,
-              com logística e serviço adequados ao formato do evento.
-            </p>
-            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="btn primary" href="#contato">Quero um orçamento</a>
-              <a class="btn ghost" href="#portfolio">Ver fotos do trabalho</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PORTFÓLIO -->
-    <section id="portfolio">
-      <div class="wrap">
+    <!-- PÁTIO VENÂNCIO -->
+    <section id="patio">
+      <div class="container">
         <div class="sectionHead">
           <div>
-            <h2>Portfólio — imagens do trabalho</h2>
-            <p>Seleção de fotos para passar a sensação de sofisticação, cuidado e apresentação.</p>
+            <h2 class="sectionTitle">Pátio Venâncio — Eventos em Joinville</h2>
+            <p class="sectionSub">
+              Hoje o Combray também assina a gastronomia dos eventos no <b>Pátio Venâncio</b>: um espaço moderno e sofisticado,
+              ideal para casamentos ao ar livre e eventos memoráveis.
+            </p>
           </div>
         </div>
 
-        <div class="gallery">
-          <figure class="shot">
-            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-interno-01-1920w.jpeg" alt="Ambiente refinado para eventos" loading="lazy" />
-            <figcaption class="caption">Ambiente e montagem com estética premium.</figcaption>
-          </figure>
+        <div class="venue">
+          <div class="venueLeft">
+            <div class="venueLogoRow">
+              <img src="https://patiovenancio.com.br/wp-content/uploads/2025/09/logo-patio-2-300x85.png" alt="Logo Pátio Venâncio" />
+              <span class="tag">Parceria Combray</span>
+            </div>
 
-          <div class="shots2">
-            <figure class="shot">
-              <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg" alt="Prato com apresentação sofisticada" loading="lazy" />
-              <figcaption class="caption">Alta gastronomia com apresentação impecável.</figcaption>
-            </figure>
+            <p>
+              Estrutura completa com ambiente externo para cerimônias e salão climatizado — perfeito para quem busca natureza,
+              conforto e uma experiência refinada.
+            </p>
 
-            <figure class="shot">
-              <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-02-1920w.jpeg" alt="Entrada e finalização com ingredientes selecionados" loading="lazy" />
-              <figcaption class="caption">Detalhes que elevam a experiência do convidado.</figcaption>
-            </figure>
+            <ul class="venueBullets" aria-label="Destaques do espaço">
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Cerimônia ao ar livre com capela e estrutura para receber convidados com conforto.
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Salão climatizado e infraestrutura de alto padrão para recepção e festa.
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Buffet em parceria com o Combray Gastronomia — do tradicional ao finger food.
+              </li>
+            </ul>
+
+            <div class="formActions" style="margin-top:14px">
+              <a class="btn primary" href="#contato">Quero um orçamento</a>
+              <a class="btn ghost" href="#galeria">Ver fotos</a>
+            </div>
+          </div>
+
+          <div class="venueGrid" aria-label="Fotos do Pátio Venâncio">
+            <a href="#" class="js-lightbox" data-img="https://cdn0.casamentos.com.br/review/3463/original/640/jpg/1056839.jpeg" aria-label="Abrir foto do Pátio Venâncio">
+              <img loading="lazy" decoding="async" src="https://cdn0.casamentos.com.br/review/3463/original/640/jpg/1056839.jpeg" alt="Cerimônia no Pátio Venâncio" />
+            </a>
+            <a href="#" class="js-lightbox" data-img="https://cdn0.casamentos.com.br/review/3465/original/640/jpg/1056839.jpeg" aria-label="Abrir foto do Pátio Venâncio">
+              <img loading="lazy" decoding="async" src="https://cdn0.casamentos.com.br/review/3465/original/640/jpg/1056839.jpeg" alt="Capela e estrutura do Pátio Venâncio" />
+            </a>
+            <a href="#" class="js-lightbox" data-img="https://patiovenancio.com.br/wp-content/uploads/2020/11/thumb_patio.jpg" aria-label="Abrir foto do Pátio Venâncio">
+              <img loading="lazy" decoding="async" src="https://patiovenancio.com.br/wp-content/uploads/2020/11/thumb_patio.jpg" alt="Área externa e estrutura do Pátio Venâncio" />
+            </a>
+            <a href="#" class="js-lightbox" data-img="https://cdn0.casamentos.com.br/review/9993/original/640/jpg/1138907.jpeg" aria-label="Abrir foto do Pátio Venâncio">
+              <img loading="lazy" decoding="async" src="https://cdn0.casamentos.com.br/review/9993/original/640/jpg/1138907.jpeg" alt="Mesa posta em evento no Pátio Venâncio" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2 class="sectionTitle">Galeria</h2>
+            <p class="sectionSub">Um recorte visual do que entregamos: gastronomia, ambientes e atmosfera de evento.</p>
           </div>
         </div>
 
-        <p class="hint">
-          Dica rápida: troque/adicione imagens do Instagram oficial da Combray para manter o portfólio sempre atualizado.
-        </p>
+        <div class="gallery" aria-label="Galeria de imagens">
+          <div class="gItem big js-lightbox" role="button" tabindex="0"
+               data-img="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg"
+               aria-label="Abrir foto de prato Combray">
+            <img loading="lazy" decoding="async" src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg" alt="Prato autoral Combray" />
+            <span class="label">Combray — prato</span>
+          </div>
+
+          <div class="gItem js-lightbox" role="button" tabindex="0"
+               data-img="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/combray%2BJoinville%2B%286%29-1920w.jpeg"
+               aria-label="Abrir foto do bar Combray">
+            <img loading="lazy" decoding="async" src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/combray%2BJoinville%2B%286%29-1920w.jpeg" alt="Ambiente do bar Combray" />
+            <span class="label">Ambiente</span>
+          </div>
+
+          <div class="gItem js-lightbox" role="button" tabindex="0"
+               data-img="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-interno-01-1920w.jpeg"
+               aria-label="Abrir foto do ambiente Combray">
+            <img loading="lazy" decoding="async" src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-interno-01-1920w.jpeg" alt="Salão e ambiente Combray" />
+            <span class="label">Salão</span>
+          </div>
+
+          <div class="gItem js-lightbox" role="button" tabindex="0"
+               data-img="https://cdn0.casamentos.com.br/review/3463/original/640/jpg/1056839.jpeg"
+               aria-label="Abrir foto do Pátio Venâncio">
+            <img loading="lazy" decoding="async" src="https://cdn0.casamentos.com.br/review/3463/original/640/jpg/1056839.jpeg" alt="Evento no Pátio Venâncio" />
+            <span class="label">Pátio Venâncio</span>
+          </div>
+
+          <div class="gItem big js-lightbox" role="button" tabindex="0"
+               data-img="https://cdn0.casamentos.com.br/review/3465/original/640/jpg/1056839.jpeg"
+               aria-label="Abrir foto da capela do Pátio Venâncio">
+            <img loading="lazy" decoding="async" src="https://cdn0.casamentos.com.br/review/3465/original/640/jpg/1056839.jpeg" alt="Capela e cerimônia no Pátio Venâncio" />
+            <span class="label">Cerimônia ao ar livre</span>
+          </div>
+
+          <div class="gItem js-lightbox" role="button" tabindex="0"
+               data-img="https://cdn0.casamentos.com.br/review/9993/original/640/jpg/1138907.jpeg"
+               aria-label="Abrir foto de mesa posta">
+            <img loading="lazy" decoding="async" src="https://cdn0.casamentos.com.br/review/9993/original/640/jpg/1138907.jpeg" alt="Mesa posta em evento" />
+            <span class="label">Recepção</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- DEPOIMENTOS -->
     <section id="depoimentos">
-      <div class="wrap">
+      <div class="container">
         <div class="sectionHead">
           <div>
-            <h2>Depoimentos</h2>
-            <p>Trechos inspirados em avaliações públicas — focados no que mais importa: qualidade, variedade e experiência.</p>
+            <h2 class="sectionTitle">Depoimentos</h2>
+            <p class="sectionSub">
+              Selecionamos trechos públicos (Pátio Venâncio) e avaliações públicas (ex.: Tripadvisor) para você sentir a experiência.
+            </p>
           </div>
         </div>
 
-        <div class="testi" aria-label="Depoimentos de clientes">
-          <blockquote>
-            <p>“Comida de qualidade, variedade e atendimento impecável — uma escolha certeira para um almoço especial.”</p>
-            <footer>
-              <span><b>Ellen B.</b> • avaliação pública</span>
-              <span class="stars" aria-label="5 estrelas">★★★★★</span>
-            </footer>
-          </blockquote>
-
-          <blockquote>
-            <p>“Ótimas opções e uma feijoada de sábado que virou referência — além de sobremesas que fazem diferença.”</p>
-            <footer>
-              <span><b>Simara Almeida</b> • avaliação pública</span>
-              <span class="stars" aria-label="5 estrelas">★★★★★</span>
-            </footer>
-          </blockquote>
-
-          <blockquote>
-            <p>“Ambiente refinado, decoração elegante e comida excelente — experiência sofisticada para quem busca alto padrão.”</p>
-            <footer>
-              <span><b>Vj Marcão</b> • avaliação pública</span>
-              <span class="stars" aria-label="4 estrelas">★★★★☆</span>
-            </footer>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA BAND -->
-    <section class="band" aria-label="Chamada para ação">
-      <div class="wrap">
-        <div class="bandInner">
-          <div>
-            <h3>Quer um evento inesquecível?</h3>
-            <p>Envie a data, cidade e número de convidados. Respondemos com agilidade.</p>
+        <div class="quoteGrid">
+          <div class="quote">
+            <p>“Espaço ao ar livre em meio à natureza, lindo e elegante. Profissionalismo e excelência da equipe.”</p>
+            <div class="who"><span>— Janaína & Renan</span><span>Pátio Venâncio</span></div>
           </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn primary" href="#contato">Solicitar orçamento</a>
-            <a class="btn ghost" href="https://www.instagram.com/combraygastronomia/" target="_blank" rel="noopener">Ver Instagram</a>
+          <div class="quote">
+            <p>“Lugar perfeito… jardim, área verde, lago, capela ao ar livre. Atendimento impecável.”</p>
+            <div class="who"><span>— Laura J.</span><span>Pátio Venâncio</span></div>
+          </div>
+          <div class="quote">
+            <p>“Ambiente externo com lindo paisagismo e salão climatizado. Atendimento pré e pós-evento foi muito bom.”</p>
+            <div class="who"><span>— Drika</span><span>Pátio Venâncio</span></div>
+          </div>
+          <div class="quote">
+            <p>“Comida de qualidade, muita variedade e atendimento impecável.”</p>
+            <div class="who"><span>— Avaliação pública</span><span>Combray</span></div>
+          </div>
+          <div class="quote">
+            <p>“Versatilidade e menus customizados que atendem de coffee breaks e coquetéis até jantares e banquetes.”</p>
+            <div class="who"><span>— Descrição pública</span><span>Combray</span></div>
+          </div>
+          <div class="quote">
+            <p>“O parceiro Combray oferece do tradicional ao finger food, com padrão de gastronomia de eventos.”</p>
+            <div class="who"><span>— Página pública</span><span>Pátio Venâncio</span></div>
           </div>
         </div>
       </div>
@@ -949,221 +1026,255 @@
 
     <!-- CONTATO -->
     <section id="contato">
-      <div class="wrap">
+      <div class="container">
         <div class="sectionHead">
           <div>
-            <h2>Contato</h2>
-            <p>Atendimento para Joinville e região, e também Florianópolis. Preencha o formulário ou fale direto no WhatsApp.</p>
+            <h2 class="sectionTitle">Contato</h2>
+            <p class="sectionSub">
+              Conte sobre o seu evento — retornamos com uma proposta objetiva e personalizada.
+            </p>
           </div>
         </div>
 
-        <div class="contactGrid">
-          <!-- Joinville -->
-          <div class="contactCard">
-            <div class="contactHead">
-              <h4>Joinville & região</h4>
-              <p>Eventos sociais, corporativos e parcerias de espaços na cidade.</p>
-            </div>
-
-            <div class="contactBody">
-              <div class="kv">
-                <b>Telefone / WhatsApp</b>
-                <span><a href="https://wa.me/554730314133?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20para%20evento%20em%20Joinville.%20Data%3A%20____%20Pessoas%3A%20____%20Tipo%3A%20____" target="_blank" rel="noopener">(47) 3031-4133</a></span>
+        <div class="contact">
+          <form id="leadForm" aria-label="Formulário de contato">
+            <div class="fieldRow">
+              <div>
+                <label for="nome">Nome</label>
+                <input id="nome" name="nome" placeholder="Seu nome" autocomplete="name" required />
               </div>
-              <div class="kv">
-                <b>E-mail</b>
-                <span><a href="mailto:eventos@combray.com.br?subject=Or%C3%A7amento%20de%20evento%20-%20Joinville&body=Ol%C3%A1!%0A%0AData%3A%20____%0AN%C2%BA%20de%20convidados%3A%20____%0ATipo%20de%20evento%3A%20____%0ALocal%3A%20____%0AObserva%C3%A7%C3%B5es%3A%20____%0A" >eventos@combray.com.br</a></span>
-              </div>
-              <div class="kv">
-                <b>Endereço (base Joinville)</b>
-                <span>Rua Gothard Kaesemodel, 254 — Anita Garibaldi — Joinville/SC</span>
-              </div>
-
-              <form id="leadForm">
-                <div class="grid2" style="gap:10px;">
-                  <div>
-                    <label for="nome">Seu nome</label>
-                    <input id="nome" name="nome" autocomplete="name" placeholder="Ex.: Ana Souza" required />
-                  </div>
-                  <div>
-                    <label for="whats">WhatsApp</label>
-                    <input id="whats" name="whats" autocomplete="tel" inputmode="tel" placeholder="(47) 9xxxx-xxxx" required />
-                  </div>
-                </div>
-
-                <div class="grid2" style="gap:10px;">
-                  <div>
-                    <label for="cidade">Cidade</label>
-                    <select id="cidade" name="cidade">
-                      <option value="Joinville">Joinville</option>
-                      <option value="Região de Joinville">Região de Joinville</option>
-                      <option value="Florianópolis">Florianópolis</option>
-                      <option value="Outra">Outra</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label for="data">Data do evento</label>
-                    <input id="data" name="data" type="date" />
-                  </div>
-                </div>
-
-                <div class="grid2" style="gap:10px;">
-                  <div>
-                    <label for="pessoas">Nº de convidados</label>
-                    <input id="pessoas" name="pessoas" inputmode="numeric" placeholder="Ex.: 120" />
-                  </div>
-                  <div>
-                    <label for="tipo">Tipo de evento</label>
-                    <input id="tipo" name="tipo" placeholder="Casamento, corporativo, aniversário..." />
-                  </div>
-                </div>
-
-                <div>
-                  <label for="msg">Mensagem</label>
-                  <textarea id="msg" name="msg" placeholder="Conte um pouco do evento e do local (Pátio Venâncio, JCC, CentroSul ou outro)."></textarea>
-                </div>
-
-                <button class="btn primary" type="submit">Enviar pelo WhatsApp</button>
-                <p class="hint">Este botão abre o WhatsApp com a mensagem preenchida (não precisa backend).</p>
-              </form>
-
-              <div class="shot" style="border-radius: var(--radius); border-color: rgba(255,255,255,.10);">
-                <iframe
-                  title="Mapa Joinville"
-                  src="https://www.google.com/maps?q=Rua%20Gothard%20Kaesemodel%20254%20Joinville%20SC&output=embed"
-                  width="100%" height="240" style="border:0; display:block;"
-                  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div>
+                <label for="tel">Telefone / WhatsApp</label>
+                <input id="tel" name="tel" placeholder="(47) 9xxxx-xxxx" autocomplete="tel" required />
               </div>
             </div>
-          </div>
 
-          <!-- Florianópolis -->
-          <div class="contactCard">
-            <div class="contactHead">
-              <h4>Florianópolis</h4>
-              <p>Atendimento de eventos e convenções — incluindo operação no CentroSul.</p>
+            <div class="fieldRow">
+              <div>
+                <label for="cidade">Cidade</label>
+                <select id="cidade" name="cidade" required>
+                  <option value="">Selecione…</option>
+                  <option>Joinville</option>
+                  <option>Região de Joinville</option>
+                  <option>Florianópolis</option>
+                  <option>Outra</option>
+                </select>
+              </div>
+              <div>
+                <label for="tipo">Tipo de evento</label>
+                <select id="tipo" name="tipo" required>
+                  <option value="">Selecione…</option>
+                  <option>Casamento</option>
+                  <option>15 anos</option>
+                  <option>Aniversário</option>
+                  <option>Corporativo</option>
+                  <option>Outro</option>
+                </select>
+              </div>
             </div>
 
-            <div class="contactBody">
-              <div class="kv">
-                <b>Telefone</b>
-                <span><a href="tel:+554832514012">(48) 3251-4012</a></span>
+            <div class="fieldRow">
+              <div>
+                <label for="data">Data (opcional)</label>
+                <input id="data" name="data" type="date" />
               </div>
-              <div class="kv">
-                <b>WhatsApp</b>
-                <span><a href="https://wa.me/554833336530?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20para%20evento%20em%20Florian%C3%B3polis.%20Data%3A%20____%20Pessoas%3A%20____%20Local%3A%20____" target="_blank" rel="noopener">(48) 3333-6530</a></span>
+              <div>
+                <label for="pessoas">Número de convidados (aprox.)</label>
+                <input id="pessoas" name="pessoas" type="number" min="1" placeholder="Ex.: 120" />
               </div>
-              <div class="kv">
-                <b>E-mail</b>
-                <span><a href="mailto:comercial@combray.com.br?subject=Or%C3%A7amento%20de%20evento%20-%20Florian%C3%B3polis">comercial@combray.com.br</a></span>
-              </div>
+            </div>
 
-              <div class="card" style="margin:0; background: rgba(255,255,255,.04);">
-                <h4 style="margin:0 0 6px;">Sugestões rápidas para agilizar sua proposta</h4>
-                <p style="margin:0; color: rgba(245,245,247,.72);">
-                  Informe: formato (coffee break/coquetel/empratado/buffet), tempo do evento, restrições alimentares,
-                  e se precisa de equipe/estrutura no local.
-                </p>
-              </div>
+            <label for="msg">Mensagem</label>
+            <textarea id="msg" name="msg" placeholder="Conte o estilo do evento, local (ex.: Pátio Venâncio), horários e preferências."></textarea>
 
-              <div class="shot">
-                <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-05-1920w.jpeg" alt="Prato com apresentação sofisticada" loading="lazy" />
-                <div class="caption">Alta gastronomia com consistência e apresentação.</div>
-              </div>
+            <div class="formActions">
+              <button class="btn primary" type="submit">Enviar</button>
+              <a class="btn ghost" href="mailto:eventos@combray.com.br?subject=Orçamento%20Combray%20Gastronomia">Enviar por e-mail</a>
+            </div>
 
-              <div class="shot" style="border-radius: var(--radius); border-color: rgba(255,255,255,.10);">
-                <iframe
-                  title="Mapa CentroSul Florianópolis"
-                  src="https://www.google.com/maps?q=CentroSul%20Florian%C3%B3polis&output=embed"
-                  width="100%" height="240" style="border:0; display:block;"
-                  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              </div>
+            <p class="note">
+              *Este site é uma página de divulgação. Ao enviar, você pode ser direcionado para e-mail/WhatsApp (dependendo do dispositivo).
+            </p>
+          </form>
 
-              <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <a class="btn primary" href="https://www.instagram.com/combraygastronomia/" target="_blank" rel="noopener">Ver Instagram</a>
-                <a class="btn ghost" href="#espacos">Ver espaços atendidos</a>
+          <div class="contactInfo" aria-label="Informações de contato e localização">
+            <div class="infoBlock">
+              <b>Combray Gastronomia</b>
+              <div style="color:var(--muted); line-height:1.65; font-size:14px">
+                <div><b style="display:inline; color:rgba(255,255,255,.88)">Telefone:</b> <a href="tel:+554730314133">(47) 3031-4133</a></div>
+                <div><b style="display:inline; color:rgba(255,255,255,.88)">E-mail eventos:</b> <a href="mailto:eventos@combray.com.br">eventos@combray.com.br</a></div>
+                <div><b style="display:inline; color:rgba(255,255,255,.88)">E-mail geral:</b> <a href="mailto:contato@combray.com.br">contato@combray.com.br</a></div>
+                <div style="margin-top:8px"><span class="tag">Joinville</span> <span class="tag">Região</span> <span class="tag">Florianópolis</span></div>
               </div>
+            </div>
+
+            <div class="infoBlock">
+              <b>Mapa (Joinville)</b>
+              <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Rua%20Gothard%20Kaesemodel%2C%20254%2C%20Joinville%20SC&output=embed"
+                title="Mapa Combray Gastronomia"></iframe>
+            </div>
+
+            <div class="infoBlock">
+              <b>Mapa (Pátio Venâncio)</b>
+              <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Estrada%20Arataca%2C%204311%2C%20Joinville%20SC&output=embed"
+                title="Mapa Pátio Venâncio"></iframe>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
-    <div class="wrap">
-      <div class="footGrid">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span style="opacity:.9;">© <span id="year"></span> Combray Gastronomia</span>
-          <span style="opacity:.5;">•</span>
-          <span style="opacity:.75;">Joinville • Florianópolis</span>
+    <div class="container">
+      <div class="footerRow">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px">
+            <img src="https://lirp.cdn-website.com/2c226423/dms3rep/multi/opt/Combray-55061806-609eba1e-1920w.png" alt="Combray" style="height:24px;width:auto;opacity:.9" />
+            <span>© <span id="year"></span> Combray Gastronomia</span>
+          </div>
+          <div style="max-width:70ch; line-height:1.6">
+            Gastronomia para eventos sociais e corporativos em Joinville, região e Florianópolis.
+          </div>
         </div>
-        <div style="display:flex; gap:14px; flex-wrap:wrap;">
-          <a href="#top">Topo</a>
-          <a href="#contato">Contato</a>
-          <a href="https://www.instagram.com/combraygastronomia/" target="_blank" rel="noopener">Instagram</a>
+        <div style="text-align:right; line-height:1.7">
+          <a href="#top" class="tag">Voltar ao topo</a><br/>
+          <span>Site demonstrativo (HTML estático)</span>
         </div>
       </div>
-      <p class="hint" style="margin-top:10px;">
-        Observação: este site é uma landing page (divulgação). Se quiser, posso criar também uma versão com multi-páginas, blog e SEO avançado.
-      </p>
     </div>
   </footer>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Visualização de imagem">
+    <div class="lightboxCard">
+      <button class="lightboxClose" type="button" aria-label="Fechar" id="lightboxClose">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <img class="lightboxImg" id="lightboxImg" alt="" />
+    </div>
+  </div>
+
   <script>
-    // Year
+    // Ano
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile menu
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileNav = document.getElementById("mobileNav");
-    if (menuBtn && mobileNav){
-      menuBtn.addEventListener("click", () => {
-        const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
-        menuBtn.setAttribute("aria-expanded", String(!isOpen));
-        mobileNav.hidden = isOpen;
-      });
+    // Menu mobile (corrigido)
+    const menuBtn = document.querySelector("[data-menu-btn]");
+    const mobileNav = document.querySelector("[data-mobile-nav]");
+    const header = document.querySelector("header");
+
+    function setMenu(open){
+      mobileNav.classList.toggle("open", open);
+      menuBtn.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("menu-open", open);
     }
 
-    // Quick WhatsApp
-    const quickWhats = document.getElementById("quickWhats");
-    if (quickWhats){
-      quickWhats.addEventListener("click", (e) => {
+    menuBtn.addEventListener("click", () => {
+      const isOpen = mobileNav.classList.contains("open");
+      setMenu(!isOpen);
+    });
+
+    // Fecha ao clicar em link
+    mobileNav.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (a) setMenu(false);
+    });
+
+    // Fecha ao clicar fora
+    document.addEventListener("click", (e) => {
+      const isOpen = mobileNav.classList.contains("open");
+      if (!isOpen) return;
+      if (!header.contains(e.target)) setMenu(false);
+    });
+
+    // Fecha no ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setMenu(false);
+    });
+
+    // Fecha se mudar para desktop
+    window.addEventListener("resize", () => {
+      if (window.matchMedia("(min-width: 721px)").matches) setMenu(false);
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    function openLightbox(src, alt){
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "Imagem ampliada";
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("menu-open"); // trava scroll também no modal
+    }
+    function closeLightbox(){
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+      document.body.classList.remove("menu-open");
+    }
+
+    document.querySelectorAll(".js-lightbox").forEach((el) => {
+      el.addEventListener("click", (e) => {
         e.preventDefault();
-        const text = encodeURIComponent("Olá! Quero um orçamento para um evento. Cidade: ____  Data: ____  Nº de convidados: ____  Tipo: ____  Local: ____");
-        window.open("https://wa.me/55?text=" + text, "_blank", "noopener");
+        const src = el.getAttribute("data-img") || el.querySelector("img")?.src;
+        const alt = el.querySelector("img")?.alt || "Imagem";
+        if (src) openLightbox(src, alt);
       });
-    }
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          const src = el.getAttribute("data-img") || el.querySelector("img")?.src;
+          const alt = el.querySelector("img")?.alt || "Imagem";
+          if (src) openLightbox(src, alt);
+        }
+      });
+    });
 
-    // Lead form -> WhatsApp message (no backend needed)
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+    });
+
+    // Form -> abre e-mail com mensagem preenchida (HTML estático)
     const form = document.getElementById("leadForm");
-    if (form){
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const nome = fd.get("nome") || "";
+      const tel = fd.get("tel") || "";
+      const cidade = fd.get("cidade") || "";
+      const tipo = fd.get("tipo") || "";
+      const data = fd.get("data") || "";
+      const pessoas = fd.get("pessoas") || "";
+      const msg = fd.get("msg") || "";
 
-        const nome = document.getElementById("nome").value.trim();
-        const whats = document.getElementById("whats").value.trim();
-        const cidade = document.getElementById("cidade").value;
-        const data = document.getElementById("data").value;
-        const pessoas = document.getElementById("pessoas").value.trim();
-        const tipo = document.getElementById("tipo").value.trim();
-        const msg = document.getElementById("msg").value.trim();
+      const subject = encodeURIComponent("Orçamento — Combray Gastronomia");
+      const body = encodeURIComponent(
+        `Olá! Gostaria de solicitar um orçamento.\n\n` +
+        `Nome: ${nome}\n` +
+        `Telefone/WhatsApp: ${tel}\n` +
+        `Cidade: ${cidade}\n` +
+        `Tipo de evento: ${tipo}\n` +
+        `Data: ${data}\n` +
+        `Convidados (aprox.): ${pessoas}\n\n` +
+        `Mensagem:\n${msg}\n`
+      );
 
-        const payload =
-`Olá! Meu nome é ${nome}.
-WhatsApp: ${whats}
-Cidade: ${cidade}
-Data: ${data || "—"}
-Convidados: ${pessoas || "—"}
-Tipo de evento: ${tipo || "—"}
-
-Mensagem:
-${msg || "—"}`;
-
-        const url = "https://wa.me/55?text=" + encodeURIComponent(payload);
-        window.open(url, "_blank", "noopener");
-      });
-    }
+      window.location.href = `mailto:eventos@combray.com.br?subject=${subject}&body=${body}`;
+      form.reset();
+    });
   </script>
 </body>
 </html>
